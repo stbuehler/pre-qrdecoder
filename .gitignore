@@ -1,0 +1,4 @@
+Makefile.custom
+build/
+de.stbuehler.qrdecoder/qrdecode_plugin
+*.ipk

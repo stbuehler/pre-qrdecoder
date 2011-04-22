@@ -1,0 +1,27 @@
+
+QR Decoder for Palm WebOS
+
+written by Stefan Bühler <source@stbuehler.de>
+Preware feed: http://palm.stbuehler.de/
+
+Uses http://code.google.com/p/zxing/ (the c++ part)
+for decoding (http://www.apache.org/licenses/LICENSE-2.0)
+
+Building:
+  copy Makefile.custom.example to Makefile.custom
+  and adjust it to your setup
+
+  then just type make (or make package install)
+  needs GNU make!
+
+
+Although the PDK is only available for Windows, you can just copy the PDK directory to /opt/PalmPDK
+and use the headers and libraries to link for the device (host mode obviously not supported).
+If you copy the libs from the emulator make TARGET=emu might work too.
+
+You can build a test command line interface for your host:
+  make TARGET=host testcli
+  ./build-host/qdecode-test some-image.jpg
+
+The zxing library checkout still has the svn entries, so you should
+be able to update it if you want with "svn up" in src/zxing/

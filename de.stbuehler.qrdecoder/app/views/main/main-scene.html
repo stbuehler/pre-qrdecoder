@@ -1,0 +1,72 @@
+<div>
+	<div class="palm-page-header palm-dark multi-line">
+		<div class="palm-page-header-wrapper">
+			<div class="title left">
+				<span x-mojo-loc=''>QR Decoder</span>
+			</div>
+		</div>
+	</div>
+
+<object type="application/x-palm-remote" id="qrdecodePlugin" height=1 width=1 x-palm-pass-event="true" style="margin: 0px; padding: 0px; height: 1px">
+	<param name="exe" value="qrdecode_plugin">
+</object>
+
+	<div class="palm-group">
+		<div class="palm-group-title" x-mojo-loc=''>Image</div>
+		<div class="palm-list">
+			<div class="palm-row single">
+				<div class="palm-row-wrapper">
+					<img id="qrimage" style="width: 100%;"></img>
+				</div>
+			</div>
+			<div class="palm-row single">
+				<div x-mojo-element="Button" id="buttonChoose"></div>
+				<div x-mojo-element="Button" id="buttonShoot"></div>
+			</div>
+			<div class="palm-row single">
+				<div x-mojo-element="Button" id="buttonDecode"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="decodeProgress" class="palm-group" style="display:none;">
+		<div class="palm-group-title" x-mojo-loc=''>In Progress</div>
+		<div class="palm-row single">
+			<div class="palm-row-wrapper">
+				<div>
+					<div x-mojo-element="Spinner" id="decodingSpinner" style="float: left; padding-right: 5px"></div>
+					<span x-mojo-loc=''>Decoding...</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="resultGroup" class="palm-group" style="display:none;">
+		<div class="palm-group-title" x-mojo-loc=''>Result</div>
+		<div class="palm-row single">
+			<div class="palm-row-wrapper">
+				<div id="result"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="errorGroup" class="palm-group" style="display:none;">
+		<div class="palm-group-title" x-mojo-loc=''>Decode Error</div>
+		<div class="palm-row single">
+			<div class="palm-row-wrapper">
+				<div id="error-text"></div>
+			</div>
+		</div>
+	</div>
+
+	<span id="bottomScroller" />
+
+	<div id="resultPlainGroup" class="palm-group" style="display:none;">
+		<div class="palm-group-title" x-mojo-loc=''>Plain Text</div>
+		<div class="palm-row single">
+			<div class="palm-row-wrapper">
+				<div x-mojo-element="TextField" id="result-textfield"></div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+{
+	"id": "de.stbuehler.qrdecoder",
+	"version": "1.0.1",
+	"vendor": "Stefan Buehler",
+	"vendorurl": "http://stbuehler.de",
+	"type": "web",
+	"plug-ins": true,
+	"main": "index.html",
+	"title": "QR Decoder",
+	"icon": "icon.png",
+	"Section": "Productivity & Utilities"
+}
