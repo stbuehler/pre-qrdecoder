@@ -1,12 +1,18 @@
 {
 	"id": "de.stbuehler.qrdecoder",
-	"version": "1.0.1",
-	"vendor": "Stefan Buehler",
-	"vendorurl": "http://stbuehler.de",
+	"version": "1.0.2",
 	"type": "web",
 	"plug-ins": true,
 	"main": "index.html",
-	"title": "QR Decoder",
-	"icon": "icon.png",
-	"Section": "Productivity & Utilities"
+	"title": "QR offline Decoder",
+	"icon": "icon-64.png",
+	"smallicon": "icon-32.png",
+	"Section": "Productivity & Utilities",
+	"vendor": "Stefan Bühler",
+	"vendorurl": "http://qrdecoder.stbuehler.de",
+	"copyright": "© Copyright 2011 Stefan Bühler",
+	"support": {
+		"url": "http://qrdecoder.stbuehler.de",
+		"email": { "address": "palm-dev@stbuehler.de", "subject": "[QR offline Decoder support]" }
+	}
 }
