@@ -7,7 +7,7 @@ LDFLAGS=$(MISCFLAGS) $(DEVICEOPTS) -Wl,--allow-shlib-undefined -L$(PALMPDK)/$(TA
 
 MISCFLAGS=-O2 -g
 
-LIBS_PLUGIN=-lSDL -lGLESv2 -lpdl -lm -lSDL_image
+LIBS_PLUGIN=-lSDL -lGLES_CM -lpdl -lm -lSDL_image
 LIBS_CLI=-lSDL_image -lm
 
 TARGET = device

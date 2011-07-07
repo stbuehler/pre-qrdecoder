@@ -21,7 +21,7 @@ extern "C" {
 #include <SDL.h>
 #include <PDL.h>
 
-#include <GLES2/gl2.h>
+#include <GLES/gl.h>
 }
 
 #include <zxing/common/Counted.h>
