@@ -2,8 +2,10 @@
 CXX=$(TOOLCHAIN)g++
 STRIP=$(TOOLCHAIN)strip
 
-CPPFLAGS=$(DEVICEOPTS) -I$(PALMPDK)/include -I$(PALMPDK)/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -Isrc -Wall
-LDFLAGS=$(DEVICEOPTS) -Wl,--allow-shlib-undefined -L$(PALMPDK)/$(TARGET)/lib
+CPPFLAGS=$(MISCFLAGS) $(DEVICEOPTS) -I$(PALMPDK)/include -I$(PALMPDK)/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -Isrc -Wall
+LDFLAGS=$(MISCFLAGS) $(DEVICEOPTS) -Wl,--allow-shlib-undefined -L$(PALMPDK)/$(TARGET)/lib
+
+MISCFLAGS=-O2 -g
 
 LIBS_PLUGIN=-lSDL -lGLESv2 -lpdl -lm -lSDL_image
 LIBS_CLI=-lSDL_image -lm
@@ -24,10 +26,15 @@ PALMPDK ?= /opt/PalmPDK
 DEVICEOPTS ?= -g -m32 -march=i686
 TOOLCHAIN ?=
 BUILD ?= build-emu
+# gles not available
+LIBS_PLUGIN=-lSDL -lpdl -lm -lSDL_image
 
 else
 PALMPDK ?= /opt/PalmPDK
-DEVICEOPTS ?= -g -mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+# Pixi+Pre
+DEVICEOPTS ?= -mcpu=arm1136jf-s -mfpu=vfp -mfloat-abi=softfp
+# Pre only
+# DEVICEOPTS ?= -mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 TOOLCHAIN ?= arm-none-linux-gnueabi-
 
 BUILD ?= build
