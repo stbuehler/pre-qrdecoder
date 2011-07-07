@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/svn/!svn/ver/1525/trunk/cpp/core/src/zxing/qrcode/decoder
+/svn/!svn/ver/1840/trunk/cpp/core/src/zxing/qrcode/decoder
 END
 DecodedBitStreamParser.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 85
-/svn/!svn/ver/1501/trunk/cpp/core/src/zxing/qrcode/decoder/DecodedBitStreamParser.cpp
+/svn/!svn/ver/1840/trunk/cpp/core/src/zxing/qrcode/decoder/DecodedBitStreamParser.cpp
 END
 BitMatrixParser.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 78
-/svn/!svn/ver/1525/trunk/cpp/core/src/zxing/qrcode/decoder/BitMatrixParser.cpp
+/svn/!svn/ver/1754/trunk/cpp/core/src/zxing/qrcode/decoder/BitMatrixParser.cpp
 END
 DecodedBitStreamParser.h
 K 25

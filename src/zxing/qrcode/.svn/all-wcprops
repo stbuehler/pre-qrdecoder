@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/!svn/ver/1570/trunk/cpp/core/src/zxing/qrcode
+/svn/!svn/ver/1840/trunk/cpp/core/src/zxing/qrcode
 END
 FormatInformation.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/svn/!svn/ver/1092/trunk/cpp/core/src/zxing/qrcode/FormatInformation.cpp
+/svn/!svn/ver/1754/trunk/cpp/core/src/zxing/qrcode/FormatInformation.cpp
 END
 ErrorCorrectionLevel.h
 K 25
@@ -25,7 +25,7 @@ FormatInformation.h
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/svn/!svn/ver/1506/trunk/cpp/core/src/zxing/qrcode/FormatInformation.h
+/svn/!svn/ver/1754/trunk/cpp/core/src/zxing/qrcode/FormatInformation.h
 END
 QRCodeReader.h
 K 25

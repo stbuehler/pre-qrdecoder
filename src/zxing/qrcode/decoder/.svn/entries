@@ -1,15 +1,15 @@
 10
 
 dir
-1745
+1848
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/qrcode/decoder
 http://zxing.googlecode.com/svn
 
 
 
-2010-08-12T20:54:54.892380Z
-1525
-srowen
+2011-06-28T16:06:13.968333Z
+1840
+smparkes@smparkes.net
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2011-04-21T13:08:37.000000Z
-c94672d78077973cd11cd8649e189fb3
-2010-08-02T04:52:06.900831Z
-1501
-srowen
+2011-07-07T12:41:11.744969Z
+de10203c2a1fecb5323edb080aa0a885
+2011-06-28T16:06:13.968333Z
+1840
+smparkes@smparkes.net
 
 
 
@@ -58,7 +58,7 @@ srowen
 
 
 
-12155
+13733
 
 BitMatrixParser.cpp
 file
@@ -66,11 +66,11 @@ file
 
 
 
-2011-04-21T13:08:37.000000Z
-8bf1d7d4624bd5f40d4e5c705d9f529c
-2010-08-12T20:54:54.892380Z
-1525
-srowen
+2011-05-15T09:30:52.672430Z
+9a1b297a3a6141eb840072ff33e5a741
+2011-04-29T18:01:46.232660Z
+1754
+smparkes@smparkes.net
 
 
 
@@ -92,7 +92,7 @@ srowen
 
 
 
-6009
+5885
 
 DecodedBitStreamParser.h
 file

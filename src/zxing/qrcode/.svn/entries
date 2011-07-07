@@ -1,14 +1,14 @@
 10
 
 dir
-1745
+1848
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/qrcode
 http://zxing.googlecode.com/svn
 
 
 
-2010-08-31T03:18:56.075102Z
-1570
+2011-06-28T16:06:13.968333Z
+1840
 smparkes@smparkes.net
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-d68f66e13eb9b24fdbd1e43553a3e9ca
-2009-11-01T17:30:30.307166Z
-1092
-ralf.kistner@gmail.com
+2011-05-15T09:30:52.680430Z
+22280df10d31d1bce5760c4e3f3563e3
+2011-04-29T18:01:46.232660Z
+1754
+smparkes@smparkes.net
 
 
 
@@ -58,7 +58,7 @@ ralf.kistner@gmail.com
 
 
 
-4168
+4731
 
 ErrorCorrectionLevel.h
 file
@@ -134,11 +134,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-a26642e2ffe463494faa741e92bc3b67
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-05-15T09:30:52.680430Z
+5abaef3f5306824ff1bf4834c0d88b98
+2011-04-29T18:01:46.232660Z
+1754
+smparkes@smparkes.net
 
 
 
@@ -160,7 +160,7 @@ flyashi
 
 
 
-1706
+1760
 
 decoder
 dir

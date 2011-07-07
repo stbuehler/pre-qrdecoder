@@ -1,7 +1,7 @@
 10
 
 dir
-1745
+1848
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/common
 http://zxing.googlecode.com/svn
 
@@ -604,40 +604,6 @@ srowen
 
 5261
 
-GreyscaleLuminanceSource.cpp
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-747049d91d5a2c0182a58768923af628
-2010-08-16T15:34:00.595860Z
-1536
-dswitkin@google.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2574
-
 IllegalArgumentException.cpp
 file
 
@@ -671,6 +637,40 @@ ralf.kistner@gmail.com
 
 
 947
+
+GreyscaleLuminanceSource.cpp
+file
+
+
+
+
+2011-04-21T13:08:35.000000Z
+747049d91d5a2c0182a58768923af628
+2010-08-16T15:34:00.595860Z
+1536
+dswitkin@google.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2574
 
 EdgeDetector.cpp
 file
@@ -740,40 +740,6 @@ rpechayr
 
 4795
 
-BitSource.h
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-c9fb275ca71ac499229b259779b10337
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1894
-
 DecoderResult.cpp
 file
 
@@ -807,6 +773,40 @@ ralf.kistner@gmail.com
 
 
 1066
+
+BitSource.h
+file
+
+
+
+
+2011-04-21T13:08:35.000000Z
+c9fb275ca71ac499229b259779b10337
+2010-08-04T13:36:20.887569Z
+1506
+flyashi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1894
 
 reedsolomon
 dir
@@ -879,40 +879,6 @@ dmaclach
 
 986
 
-DetectorResult.h
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-4329be46716e4ec3242c768bbf558b7b
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1369
-
 BitArray.cpp
 file
 
@@ -946,6 +912,40 @@ flyashi
 
 
 3162
+
+DetectorResult.h
+file
+
+
+
+
+2011-04-21T13:08:35.000000Z
+4329be46716e4ec3242c768bbf558b7b
+2010-08-04T13:36:20.887569Z
+1506
+flyashi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1369
 
 GridSampler.h
 file
@@ -981,40 +981,6 @@ flyashi
 
 1538
 
-Array.h
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-eab8213ed6a51f7feaa283d0a0f640b1
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5049
-
 GreyscaleRotatedLuminanceSource.h
 file
 
@@ -1048,6 +1014,40 @@ dswitkin@google.com
 
 
 1436
+
+Array.h
+file
+
+
+
+
+2011-04-21T13:08:35.000000Z
+eab8213ed6a51f7feaa283d0a0f640b1
+2010-08-04T13:36:20.887569Z
+1506
+flyashi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5049
 
 GlobalHistogramBinarizer.h
 file

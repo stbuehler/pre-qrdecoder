@@ -1,15 +1,15 @@
 10
 
 dir
-1745
+1848
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing
 http://zxing.googlecode.com/svn
 
 
 
-2011-03-29T11:40:25.562716Z
-1730
-rpechayr
+2011-06-28T16:06:13.968333Z
+1840
+smparkes@smparkes.net
 
 
 
@@ -25,40 +25,6 @@ rpechayr
 
 
 59b500cc-1b3d-0410-9834-0bbf25fbcc57
-
-Exception.cpp
-file
-
-
-
-
-2011-04-21T13:08:38.000000Z
-05ce9c63105da806d26da3cfb487a9c7
-2010-05-04T21:44:53.303733Z
-1334
-dmaclach
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-371
 
 DecodeHints.h
 file
@@ -93,6 +59,40 @@ srowen
 
 
 2235
+
+Exception.cpp
+file
+
+
+
+
+2011-04-21T13:08:38.000000Z
+05ce9c63105da806d26da3cfb487a9c7
+2010-05-04T21:44:53.303733Z
+1334
+dmaclach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+371
 
 LuminanceSource.h
 file
@@ -233,9 +233,6 @@ dswitkin@google.com
 
 771
 
-common
-dir
-
 Reader.h
 file
 
@@ -269,6 +266,9 @@ has-props
 
 
 1057
+
+common
+dir
 
 BarcodeFormat.cpp
 file
@@ -338,9 +338,6 @@ srowen
 
 1048
 
-datamatrix
-dir
-
 BarcodeFormat.h
 file
 
@@ -374,6 +371,9 @@ flyashi
 
 
 1178
+
+datamatrix
+dir
 
 Result.cpp
 file

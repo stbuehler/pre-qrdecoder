@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 43
-/svn/!svn/ver/1730/trunk/cpp/core/src/zxing
-END
-DecodeHints.h
-K 25
-svn:wc:ra_dav:version-url
-V 57
-/svn/!svn/ver/1524/trunk/cpp/core/src/zxing/DecodeHints.h
+/svn/!svn/ver/1840/trunk/cpp/core/src/zxing
 END
 Exception.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 57
 /svn/!svn/ver/1334/trunk/cpp/core/src/zxing/Exception.cpp
+END
+DecodeHints.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1524/trunk/cpp/core/src/zxing/DecodeHints.h
 END
 LuminanceSource.h
 K 25
@@ -69,17 +69,17 @@ svn:wc:ra_dav:version-url
 V 54
 /svn/!svn/ver/1334/trunk/cpp/core/src/zxing/Result.cpp
 END
-BinaryBitmap.cpp
-K 25
-svn:wc:ra_dav:version-url
-V 60
-/svn/!svn/ver/1489/trunk/cpp/core/src/zxing/BinaryBitmap.cpp
-END
 ReaderException.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 63
 /svn/!svn/ver/1092/trunk/cpp/core/src/zxing/ReaderException.cpp
+END
+BinaryBitmap.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1489/trunk/cpp/core/src/zxing/BinaryBitmap.cpp
 END
 Result.h
 K 25
