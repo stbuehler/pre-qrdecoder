@@ -12,7 +12,7 @@ var MainAssistant = Class.create({
 	setup: function() {
 		this.controller.setupWidget(Mojo.Menu.appMenu, StageAssistant.appMenuAttributes, StageAssistant.appMenuModel);
 
-		this.plugin = $('qrdecodePlugin');
+		this.plugin = new PluginWrapper($('qrdecodePlugin'), [], ['decode']);
 		this.img = $('qrimage');
 		/* this function is for setup tasks that have to happen when the scene is first created */
 

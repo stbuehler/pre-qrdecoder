@@ -32,6 +32,8 @@ extern "C" {
 
 #include "SDLImageSource.h"
 
+const char DECODE_REQUEST_ID[] = "decode-0";
+
 using namespace zxing;
 
 std::string hexEncode(const std::string &s) {
@@ -48,18 +50,20 @@ std::string hexEncode(const std::string &s) {
 
 void plugin_decode_exception(const char *msg) {
 	const char *params[2];
-	params[0] = "";
+	params[0] = DECODE_REQUEST_ID;
 	params[1] = msg;
-	PDL_Err mjErr = PDL_CallJS("decodeDone", params, 2); 
+	PDL_Err mjErr = PDL_CallJS("asyncResult", params, 2);
 	if ( mjErr != PDL_NOERROR ) {
 		std::cerr << "PDL_CallJS error: " << PDL_GetError() << "\n";
 	}
 }
 
 void plugin_decode_success(const char *result) {
-	const char *params[1];
-	params[0] = result;
-	PDL_Err mjErr = PDL_CallJS("decodeDone", params, 1); 
+	const char *params[3];
+	params[0] = DECODE_REQUEST_ID;
+	params[1] = "";
+	params[2] = result;
+	PDL_Err mjErr = PDL_CallJS("asyncResult", params, 3);
 	if ( mjErr != PDL_NOERROR ) {
 		std::cerr << "PDL_CallJS error: " << PDL_GetError() << "\n";
 	}
@@ -130,6 +134,7 @@ PDL_bool decode(PDL_JSParameters *params) {
 	equeue.user.code = 0;
 	SDL_PushEvent(&equeue);
 
+	PDL_JSReply(params, DECODE_REQUEST_ID);
 	return PDL_TRUE;
 }
 
@@ -198,6 +203,11 @@ int main(int argc, char** argv) {
 	glClearColor    (0.0, 0.0, 0.0, 0.0);
 
 	Display();
+
+	PDL_Err mjErr = PDL_CallJS("onLoaded", NULL, 0);
+	if ( mjErr != PDL_NOERROR ) {
+		std::cerr << "PDL_CallJS error: " << PDL_GetError() << "\n";
+	}
 
 	/* loop */
 	SDL_Event Event;
