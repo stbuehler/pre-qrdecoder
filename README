@@ -1,8 +1,8 @@
 
-QR Decoder for Palm WebOS
+QR offline Decoder for Palm WebOS
 
-written by Stefan Bühler <source@stbuehler.de>
-Preware feed: http://palm.stbuehler.de/
+written by Stefan Bühler <source@stbuehler.de>, available
+under http://www.apache.org/licenses/LICENSE-2.0
 
 Uses http://code.google.com/p/zxing/ (the c++ part)
 for decoding (http://www.apache.org/licenses/LICENSE-2.0)
