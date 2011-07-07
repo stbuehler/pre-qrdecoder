@@ -1,6 +1,6 @@
 {
 	"id": "de.stbuehler.qrdecoder",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"type": "web",
 	"plug-ins": true,
 	"main": "index.html",
