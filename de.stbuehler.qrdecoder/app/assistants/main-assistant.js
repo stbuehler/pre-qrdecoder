@@ -97,26 +97,32 @@ var MainAssistant = Class.create({
 		$('decodeProgress').hide();
 		this.decodingSpinnerModel.spinning = false;
 		this.controller.modelChanged(this.decodingSpinnerModel);
-		try {
-			var result = future.result;;
+		if (future.exception) {
+			Mojo.Log.error('onDecodedImage: decoding failed: ' +future.exception);
+			this.showError('decoding failed: ' + future.exception);
+		} else {
+			var result = future.result;
 			this.showResult(result);
-		} catch (e) {
-			Mojo.Log.error('decoding failed: ' + e);
-			this.showError('decoding failed: ' + e);
 		}
 	},
 
 	decodeImage: function(event) {
+		var f;
 		if (this.decodeFuture) return;
-		this.decodeFuture = decode(this.plugin, this.currentFilename).then(this.onDecodedImage);
+		f = decode(this.plugin, this.currentFilename);
+		this.decodeFuture = f;
 		this.clearResult();
 		$('decodeProgress').show();
 		this.decodingSpinnerModel.spinning = true;
 		this.controller.modelChanged(this.decodingSpinnerModel);
 		this.scrollTo($('bottomScroller'));
+
+		/* this can result in an immediate callback, so do this last */
+		f.then(this.onDecodedImage);
 	},
 
 	activate: function(event) {
+		this.plugin.activate();
 		if (event && event.filename) {
 			this.useImage(event.filename);
 			this.decodeImage();
@@ -126,6 +132,7 @@ var MainAssistant = Class.create({
 	},
 
 	deactivate: function(event) {
+		this.plugin.deactivate();
 		/* remove any event handlers you added in activate and do any other cleanup that should happen before
 		   this scene is popped or another scene is pushed on top */
 	},
@@ -135,6 +142,7 @@ var MainAssistant = Class.create({
 		   a result of being popped off the scene stack */
 		if (this.decodeFuture) {
 			this.decodeFuture.cancel();
+			this.decodeFuture = false;
 		}
 		this.controller.stopListening('qrimage', Mojo.Event.tap, this.launchCam);
 		this.controller.stopListening('buttonDecode', Mojo.Event.tap, this.decodeImage);

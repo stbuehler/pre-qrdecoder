@@ -20,8 +20,7 @@ extern "C" {
 
 #include <SDL.h>
 #include <PDL.h>
-
-#include <GLES/gl.h>
+#include <unistd.h>
 }
 
 #include <zxing/common/Counted.h>
@@ -35,6 +34,24 @@ extern "C" {
 const char DECODE_REQUEST_ID[] = "decode-0";
 
 using namespace zxing;
+
+PDL_Err CallJS(const char *functionName, const char **params, int numParams) {
+	PDL_Err mjErr;
+	int i;
+	/* try max 10 times, 100 msec. make sure your plugin methods are faster than this */
+	for (i = 0; i < 10; i++) {
+		mjErr = PDL_CallJS(functionName, params, numParams);
+		if (2 != mjErr) return mjErr;
+		usleep(10000);
+	}
+	std::cerr << "PDL_CallJS error (" << mjErr << "): " << PDL_GetError() << "\n";
+	std::cerr << "Stopping plugin\n";
+
+	PDL_Quit();
+	SDL_Quit();
+	exit(1);
+}
+#define PDL_CallJS CallJS
 
 std::string hexEncode(const std::string &s) {
 	static const char hexChar[] = "0123456789abcdef";
@@ -54,7 +71,7 @@ void plugin_decode_exception(const char *msg) {
 	params[1] = msg;
 	PDL_Err mjErr = PDL_CallJS("asyncResult", params, 2);
 	if ( mjErr != PDL_NOERROR ) {
-		std::cerr << "PDL_CallJS error: " << PDL_GetError() << "\n";
+		std::cerr << "PDL_CallJS error (" << mjErr << "): " << PDL_GetError() << "\n";
 	}
 }
 
@@ -65,7 +82,7 @@ void plugin_decode_success(const char *result) {
 	params[2] = result;
 	PDL_Err mjErr = PDL_CallJS("asyncResult", params, 3);
 	if ( mjErr != PDL_NOERROR ) {
-		std::cerr << "PDL_CallJS error: " << PDL_GetError() << "\n";
+		std::cerr << "PDL_CallJS error (" << mjErr << "): " << PDL_GetError() << "\n";
 	}
 }
 
@@ -137,6 +154,9 @@ PDL_bool decode(PDL_JSParameters *params) {
 	PDL_JSReply(params, DECODE_REQUEST_ID);
 	return PDL_TRUE;
 }
+PDL_bool checkPlugin(PDL_JSParameters *params) {
+	return PDL_TRUE;
+}
 
 void jobqueue() {
 	for ( ;; ) {
@@ -168,16 +188,16 @@ static void init() {
 		job_queue_lock = SDL_CreateMutex();
 
 		PDL_RegisterJSHandler("decode", decode);
+		PDL_RegisterJSHandler("check", checkPlugin);
 		PDL_JSRegistrationComplete();
 	}
 }
 
 
 // Main-loop workhorse function for displaying the object
-void Display() {
-	// Clear the screen
-	glClear (GL_COLOR_BUFFER_BIT);
-	SDL_GL_SwapBuffers();
+void Display(SDL_Surface *surface, Uint32 color) {
+	SDL_FillRect(surface, NULL, color);
+	SDL_Flip(surface);
 }
 
 int main(int argc, char** argv) {
@@ -193,29 +213,33 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	// Tell it to use OpenGL version 2.0
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-
-	// Set the video mode to full screen with OpenGL-ES support
-	SDL_Surface* Surface = SDL_SetVideoMode(0, 0, 0, SDL_OPENGL);
-
-	// Basic GL setup
-	glClearColor    (0.0, 0.0, 0.0, 0.0);
-
-	Display();
-
-	PDL_Err mjErr = PDL_CallJS("onLoaded", NULL, 0);
-	if ( mjErr != PDL_NOERROR ) {
-		std::cerr << "PDL_CallJS error: " << PDL_GetError() << "\n";
+	SDL_Surface* Surface = SDL_SetVideoMode(0, 0, 0, 0);
+	if (!Surface) {
+		std::cerr << "Could not set video mode: " << SDL_GetError() << "\n";
+		exit(1);
 	}
+	Uint32 color = SDL_MapRGBA(Surface->format, 0, 0, 0, 0);
+
+	Display(Surface, color);
+
+	bool signaledReady = false;
 
 	/* loop */
 	SDL_Event Event;
 	do {
+		if (!signaledReady) {
+			PDL_Err mjErr = PDL_CallJS("ready", NULL, 0);
+			if ( mjErr != PDL_NOERROR ) {
+				std::cerr << "PDL_CallJS error: " << PDL_GetError() << "\n";
+			} else {
+				signaledReady = true;
+			}
+		}
+
 		SDL_WaitEvent(&Event);
 		switch (Event.type) {
 		case SDL_VIDEOEXPOSE:
-			Display();
+			Display(Surface, color);
 			break;
 		case SDL_USEREVENT:
 			jobqueue();

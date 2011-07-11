@@ -5,7 +5,19 @@
  *
  * synchronized methods return a future, which just forwards the direct result of the 
  * plugin method call
- * 
+ *
+ *
+ * plugin implementation requirements:
+ *   - needs a "check" method like this:
+ *     PDL_bool checkPlugin(PDL_JSParameters *params) { return PDL_TRUE; }
+ *     [...]
+ *     PDL_RegisterJSHandler("check", checkPlugin);
+ *   - calls "ready" in the SDL event loop until it succeeded:
+ *     PDL_Err mjErr = PDL_CallJS("ready", NULL, 0);
+ *
+ * call the (de)activate methods from the corresponding methods in your scene assistants
+ *   (plugins are not accessible while the scene is deactivated)
+ *
  * async method expect the plugin to return a "request-id"; the plugin should call the
  * "asyncResult" handler later (with PDL_CallJS) with the parameters:
  *   - "request-id" (the same ofc)
@@ -26,16 +38,20 @@
 
 
 var PluginWrapper = Class.create({
-	initialize: function(plugin, syncmethods, asyncmethods) {
+	initialize: function initialize(plugin, syncmethods, asyncmethods) {
 		var i, method;
-		
+
 		this._plugin = plugin;
-		plugin.onLoaded = this._onLoaded.bind(this);
+		plugin.ready = this._onReady.bind(this);
 		plugin.asyncResult = this._asyncResult.bind(this);
+		this._runCheck = this._runCheck.bind(this);
 		this._queue = [];
 		this._loaded = false;
+		this._crashed = false;
+		this._checkTimerActive = false;
+		this._active = true;
 		this._asyncReq = { }; /* map to *lists* of futures */
-		
+
 		for (i = 0; i < syncmethods.length; i++) {
 			method = syncmethods[i];
 			this[method] = this._runSyncMethod(method);
@@ -45,19 +61,44 @@ var PluginWrapper = Class.create({
 			this[method] = this._runAsyncMethod(method);
 		}
 	},
-	
-	_runSyncMethodInner: function(method, future, args) {
+
+	deactivate: function deactivate() {
+		if (!this._active) return;
+		this._active = false;
+	},
+	activate: function activate() {
+		if (this._active) return;
+		this._active = true;
+		if (this._loaded) this._runQueue();
+		if (!this._loaded || this._crashed || this._checkTimerActive) return;
+		this._checkTimerActive = true;
+		setTimeout(this._runCheck, 1);
+	},
+
+	_runSyncMethodInner: function _runSyncMethodInner(method, future, args) {
 		try {
+			if (this._crashed) {
+				future.exception = new Error("plugin died, cannot call method '" + method +"'");
+				return future;
+			}
+			if (!this._plugin || !this._plugin[method]) {
+				future.exception = new Error("plugin has no method '" + method + "'");
+				return;
+			}
 			future.result = this._plugin[method].apply(this.plugin, args);
 		} catch (e) {
 			future.exception = e;
 		}
 	},
-	_runSyncMethod: function(method) {
+	_runSyncMethod: function _runSyncMethod(method) {
 		var self = this;
-		return function() {
+		return function runSomeSyncMethod() {
 			future = new Future();
-			if (!self._loaded) {
+			if (self._crashed) {
+				future.exception = new Error("plugin died, cannot call method '" + method +"'");
+				return future;
+			}
+			if (!self._loaded || !self._active) {
 				self._queue.push(self._runSyncMethodInner.bind(self, method, future, arguments));
 				return future;
 			}
@@ -65,7 +106,7 @@ var PluginWrapper = Class.create({
 			return future;
 		}.bind(this);
 	},
-	
+
 	_asyncResultDeliver: function _asyncResultDeliver(future, exc, res) {
 		if (exc) {
 			future.exception = exc;
@@ -73,7 +114,7 @@ var PluginWrapper = Class.create({
 			future.result = res;
 		}
 	},
-	_asyncResult: function asyncResult(reqid, exception) {
+	_asyncResult: function _asyncResult(reqid, exception) {
 		var f, list, i;
 		f = this._asyncReq[reqid];
 		if (!f) {
@@ -97,9 +138,17 @@ var PluginWrapper = Class.create({
 			setTimeout(this._asyncResultDeliver.call.bind(this._asyncResultDeliver, this, f, false, list), 1);
 		}
 	},
-	_runAsyncMethodInner: function(method, future, args) {
-		var reqid, fl
+	_runAsyncMethodInner: function _runAsyncMethodInner(method, future, args) {
+		var reqid, fl;
 		try {
+			if (this._crashed) {
+				future.exception = new Error("plugin died, cannot call method '" + method +"'");
+				return future;
+			}
+			if (!this._plugin || !this._plugin[method]) {
+				future.exception = new Error("plugin has no method '" + method + "'");
+				return;
+			}
 			reqid = this._plugin[method].apply(this._plugin, args);
 			fl = this._asyncReq[reqid];
 			if (fl) {
@@ -111,11 +160,15 @@ var PluginWrapper = Class.create({
 			future.exception = e;
 		}
 	},
-	_runAsyncMethod: function(method) {
+	_runAsyncMethod: function _runAsyncMethod(method) {
 		var self = this;
-		return function() {
+		return function runSomeAsyncMethod() {
 			future = new Future();
-			if (!self._loaded) {
+			if (self._crashed) {
+				future.exception = new Error("plugin died, cannot call method '" + method +"'");
+				return future;
+			}
+			if (!self._loaded || !self._active) {
 				self._queue.push(self._runAsyncMethodInner.bind(self, method, future, arguments));
 				return future;
 			}
@@ -124,18 +177,58 @@ var PluginWrapper = Class.create({
 		}.bind(this);
 	},
 
-	_onLoaded: function() {
-		/* delay: "JavaScript functions called from the plug-in can not call handler functions." */
-		setTimeout(function() {
-			/* start all queued calls */
-			var i, q;
-			this._loaded = true;
-			q = this._queue;
-			for (i = 0; i < q.length; i++) {
-				q[i]();
-			}
-		}.bind(this), 1);
+	_runQueue: function _runQueue() {
+		var i, q;
+		q = this._queue;
+		this._queue = [];
+		for (i = 0; i < q.length; i++) {
+			q[i]();
+		}
 	},
+	_onReady: function _onReady() {
+		/* delay: "JavaScript functions called from the plug-in can not call handler functions." */
+		if (this._loaded) return;
+		this._loaded = true;
+		if (!this._active) return;
+
+		setTimeout(this._runQueue.bind(this), 1);
+		if (!this._checkTimerActive) {
+			this._checkTimerActive = true;
+			setTimeout(this._runCheck, 1000);
+		}
+	},
+
+	_pluginCrashed : function _pluginCrashed() {
+		this._crashed = true;
+		var l, i, q;
+		this._runQueue();
+		q = this._asyncReq;
+		this._asyncReq = { };
+		for (l in q) {
+			if (q.hasOwnProperty(l)) {
+				l = q[l];
+				for (i = 0; i < l.length; i++) {
+					l[i].exception = new Error("plugin died");
+				}
+			}
+		}
+	},
+	_runCheck: function _runCheck() {
+		if (!this._active) {
+			this._checkTimerActive = false;
+			return;
+		}
+		try {
+			if (!this._plugin || !this._plugin.check) {
+				Mojo.Log.error("plugin has no method 'check', probably crashed");
+				return this._pluginCrashed();
+			}
+			this._plugin.check();
+			setTimeout(this._runCheck, 1000);
+		} catch (e) {
+			this._pluginCrashed();
+		}
+	}
 });
 
 /* "Binary" strings - not UTF-8 characters */

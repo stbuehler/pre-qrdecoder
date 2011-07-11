@@ -7,7 +7,7 @@ LDFLAGS=$(MISCFLAGS) $(DEVICEOPTS) -Wl,--allow-shlib-undefined -L$(PALMPDK)/$(TA
 
 MISCFLAGS=-O2 -g
 
-LIBS_PLUGIN=-lSDL -lGLES_CM -lpdl -lm -lSDL_image
+LIBS_PLUGIN=-lSDL -lpdl -lm -lSDL_image
 LIBS_CLI=-lSDL_image -lm
 
 TARGET = device
@@ -17,13 +17,13 @@ TARGET = device
 # defaults for customizable vars
 ifeq ($(TARGET),host)
 PALMPDK ?= /usr
-DEVICEOPTS ?= -g
+DEVICEOPTS ?=
 TOOLCHAIN ?=
 BUILD ?= build-host
 
 else ifeq ($(TARGET),emu)
 PALMPDK ?= /opt/PalmPDK
-DEVICEOPTS ?= -g -m32 -march=i686
+DEVICEOPTS ?= -m32 -march=i686
 TOOLCHAIN ?=
 BUILD ?= build-emu
 # gles not available
@@ -38,6 +38,12 @@ DEVICEOPTS ?= -mcpu=arm1136jf-s -mfpu=vfp -mfloat-abi=softfp
 TOOLCHAIN ?= arm-none-linux-gnueabi-
 
 BUILD ?= build
+endif
+
+ifeq ($(DEBUG),1)
+PLUGIN_BINARY=qrdecode_plugin-dbg
+else
+PLUGIN_BINARY=qrdecode_plugin
 endif
 
 # end of custom vars
@@ -65,8 +71,8 @@ $(BUILD)/qrdecode_plugin-dbg: $(OBJS) $(BUILD)/qrdecode.o
 $(BUILD)/qrdecode_plugin: $(BUILD)/qrdecode_plugin-dbg
 	$(STRIP) --strip-unneeded -o $@ $<
 
-package: $(BUILD)/qrdecode_plugin
-	cp $(BUILD)/qrdecode_plugin de.stbuehler.qrdecoder/qrdecode_plugin
+package: $(BUILD)/$(PLUGIN_BINARY)
+	cp $(BUILD)/$(PLUGIN_BINARY) de.stbuehler.qrdecoder/qrdecode_plugin
 	palm-package de.stbuehler.qrdecoder
 
 install:
