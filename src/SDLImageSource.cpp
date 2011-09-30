@@ -118,10 +118,10 @@ using namespace zxing;
 zxing::Ref<zxing::Result> qrDecode(zxing::Ref<zxing::LuminanceSource> source) {
 	zxing::DecodeHints hints(zxing::DecodeHints::DEFAULT_HINT);
 	hints.setTryHarder(true);
-//	hints.addFormat(zxing::BarcodeFormat_DATA_MATRIX);
+	hints.addFormat(zxing::BarcodeFormat_DATA_MATRIX);
 
-	zxing::Ref<zxing::Reader> reader(new zxing::qrcode::QRCodeReader());
-//	zxing::Ref<zxing::Reader> reader(new zxing::MultiFormatReader());
+//	zxing::Ref<zxing::Reader> reader(new zxing::qrcode::QRCodeReader());
+	zxing::Ref<zxing::Reader> reader(new zxing::MultiFormatReader());
 	try {
 		zxing::Ref<zxing::BinaryBitmap> bitmap(new zxing::BinaryBitmap(zxing::Ref<zxing::GlobalHistogramBinarizer>(new zxing::GlobalHistogramBinarizer(source))));
 		return reader->decode(bitmap, hints);
