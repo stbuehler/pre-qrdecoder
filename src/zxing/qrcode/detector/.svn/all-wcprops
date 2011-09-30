@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 59
-/svn/!svn/ver/1838/trunk/cpp/core/src/zxing/qrcode/detector
+/svn/!svn/ver/1902/trunk/cpp/core/src/zxing/qrcode/detector
 END
 Detector.h
 K 25
@@ -61,7 +61,7 @@ Detector.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/svn/!svn/ver/1838/trunk/cpp/core/src/zxing/qrcode/detector/Detector.cpp
+/svn/!svn/ver/1902/trunk/cpp/core/src/zxing/qrcode/detector/Detector.cpp
 END
 AlignmentPatternFinder.h
 K 25

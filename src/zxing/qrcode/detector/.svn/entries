@@ -1,14 +1,14 @@
 10
 
 dir
-1848
+1948
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/qrcode/detector
 http://zxing.googlecode.com/svn
 
 
 
-2011-06-28T15:59:45.619622Z
-1838
+2011-09-02T21:40:29.842569Z
+1902
 smparkes@smparkes.net
 
 
@@ -338,10 +338,10 @@ file
 
 
 
-2011-07-07T12:41:11.764969Z
-920a1f0771205dc4d6afa1c752b7291c
-2011-06-28T15:59:45.619622Z
-1838
+2011-09-11T11:30:13.434690Z
+53b096d5c1407b021e941a3c88a1e8b3
+2011-09-02T21:40:29.842569Z
+1902
 smparkes@smparkes.net
 
 
@@ -364,7 +364,7 @@ smparkes@smparkes.net
 
 
 
-11659
+11661
 
 AlignmentPatternFinder.h
 file

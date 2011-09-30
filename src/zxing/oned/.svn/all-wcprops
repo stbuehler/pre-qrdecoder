@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 48
-/svn/!svn/ver/1730/trunk/cpp/core/src/zxing/oned
-END
-UPCEANReader.cpp
-K 25
-svn:wc:ra_dav:version-url
-V 65
-/svn/!svn/ver/1730/trunk/cpp/core/src/zxing/oned/UPCEANReader.cpp
+/svn/!svn/ver/1862/trunk/cpp/core/src/zxing/oned
 END
 OneDResultPoint.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 68
 /svn/!svn/ver/1527/trunk/cpp/core/src/zxing/oned/OneDResultPoint.cpp
+END
+UPCEANReader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1730/trunk/cpp/core/src/zxing/oned/UPCEANReader.cpp
 END
 EAN13Reader.h
 K 25
@@ -27,23 +27,23 @@ svn:wc:ra_dav:version-url
 V 72
 /svn/!svn/ver/1561/trunk/cpp/core/src/zxing/oned/MultiFormatOneDReader.h
 END
-UPCEANReader.h
-K 25
-svn:wc:ra_dav:version-url
-V 63
-/svn/!svn/ver/1730/trunk/cpp/core/src/zxing/oned/UPCEANReader.h
-END
 OneDResultPoint.h
 K 25
 svn:wc:ra_dav:version-url
 V 66
 /svn/!svn/ver/1506/trunk/cpp/core/src/zxing/oned/OneDResultPoint.h
 END
+UPCEANReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1730/trunk/cpp/core/src/zxing/oned/UPCEANReader.h
+END
 ITFReader.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/svn/!svn/ver/1531/trunk/cpp/core/src/zxing/oned/ITFReader.cpp
+/svn/!svn/ver/1862/trunk/cpp/core/src/zxing/oned/ITFReader.cpp
 END
 OneDReader.cpp
 K 25
@@ -75,17 +75,17 @@ svn:wc:ra_dav:version-url
 V 61
 /svn/!svn/ver/1531/trunk/cpp/core/src/zxing/oned/OneDReader.h
 END
-Code39Reader.h
-K 25
-svn:wc:ra_dav:version-url
-V 63
-/svn/!svn/ver/1511/trunk/cpp/core/src/zxing/oned/Code39Reader.h
-END
 EAN8Reader.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 63
 /svn/!svn/ver/1563/trunk/cpp/core/src/zxing/oned/EAN8Reader.cpp
+END
+Code39Reader.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1511/trunk/cpp/core/src/zxing/oned/Code39Reader.h
 END
 UPCEReader.cpp
 K 25
@@ -127,7 +127,7 @@ Code128Reader.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/svn/!svn/ver/1531/trunk/cpp/core/src/zxing/oned/Code128Reader.cpp
+/svn/!svn/ver/1858/trunk/cpp/core/src/zxing/oned/Code128Reader.cpp
 END
 EAN13Reader.cpp
 K 25

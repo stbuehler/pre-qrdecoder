@@ -1,15 +1,15 @@
 10
 
 dir
-1848
+1948
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/oned
 http://zxing.googlecode.com/svn
 
 
 
-2011-03-29T11:40:25.562716Z
-1730
-rpechayr
+2011-07-23T14:09:14.869677Z
+1862
+srowen
 
 
 
@@ -236,11 +236,11 @@ file
 
 
 
-2011-04-21T13:08:34.000000Z
-0ab40de5ac1b3bcf4f8514775a8c8df1
-2010-08-13T19:47:13.870563Z
-1531
-dswitkin@google.com
+2011-09-11T11:30:13.414689Z
+a3b6b8f2b3494086ccb6588da7f5e639
+2011-07-23T14:09:14.869677Z
+1862
+srowen
 
 
 
@@ -262,7 +262,7 @@ dswitkin@google.com
 
 
 
-12567
+12751
 
 OneDReader.cpp
 file
@@ -712,11 +712,11 @@ file
 
 
 
-2011-04-21T13:08:34.210962Z
-2c81c3edfed292c719f611a40deabe45
-2010-08-13T19:47:13.870563Z
-1531
-dswitkin@google.com
+2011-09-11T11:30:13.414689Z
+492614aafe5d98a6179acd8ee175f3be
+2011-07-14T18:32:23.445158Z
+1858
+srowen
 
 
 
@@ -738,7 +738,7 @@ dswitkin@google.com
 
 
 
-15080
+15113
 
 EAN13Reader.cpp
 file
