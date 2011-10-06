@@ -4,6 +4,7 @@
 	"type": "web",
 	"plug-ins": true,
 	"main": "index.html",
+	"uiRevision": 2,
 	"title": "QR offline Decoder",
 	"icon": "icon-64.png",
 	"smallicon": "icon-32.png",

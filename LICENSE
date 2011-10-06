@@ -16,3 +16,7 @@ The bundled zxing (http://code.google.com/p/zxing/) library is licensed under
 http://www.apache.org/licenses/LICENSE-2.0 too, see src/zxing/COPYING for a
 complete copy.
 The zxing library was not written by me :)
+
+
+The back-pill images are from preware (http://git.webos-internals.org/applications/preware), which is licensed under GNU GPL 2, see
+http://git.webos-internals.org/applications/preware/tree/LICENSE

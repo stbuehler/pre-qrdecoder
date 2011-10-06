@@ -1,1 +1,27 @@
 #error-text { color: red }
+
+
+.backPill
+{
+	position: absolute;
+	top: 9px;
+	left: -16px;
+	height: 33px;
+	width: 38px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url(../images/back-pill.png);
+}
+.backPill:active
+{
+	background-image: url(../images/back-pill-active.png);
+}
+
+body.palm-dark .backPill
+{
+	background-image: url(../images/back-pill-dark.png);
+}
+body.palm-dark .backPill:active
+{
+	background-image: url(../images/back-pill-dark-active.png);
+}

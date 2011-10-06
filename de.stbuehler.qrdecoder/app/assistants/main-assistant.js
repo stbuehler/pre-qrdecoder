@@ -43,10 +43,14 @@ var MainAssistant = Class.create({
 	},
 
 	launchCam: function(event) {
-		this.controller.stageController.pushScene(
-			{ appId: 'com.palm.app.camera', name: 'capture' },
-			{ sublaunch: true, mode: 'still', filename: MainAssistant.imgFilename }
-		);
+		if (Mojo.Environment.DeviceInfo.modelNameAscii == 'TouchPad') {
+			Mojo.Controller.errorDialog("Cannot take pictures on this device. Use 'DigiCamera Lite' or a similar camera app on your touchpad to take pictures");
+		} else {
+			this.controller.stageController.pushScene(
+				{ appId: 'com.palm.app.camera', name: 'capture' },
+				{ sublaunch: true, mode: 'still', filename: MainAssistant.imgFilename }
+			);
+		}
 	},
 
 	onImageSelect: function(event) {

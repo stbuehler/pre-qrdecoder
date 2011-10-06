@@ -7,7 +7,16 @@ var StageAssistant = Class.create({
 		if (event.type == Mojo.Event.command) {
 			switch (event.command) {
 			case 'do-support':
-				this.controller.pushAppSupportInfoScene();
+				if (Mojo.Environment.DeviceInfo.modelNameAscii == 'TouchPad') {
+					Mojo.Controller.getAppController().createStageWithCallback(
+						{ name: "supportStage", lightweight: true},
+						function onSupportStage(stageController) {
+							stageController.pushAppSupportInfoScene();
+						},
+						"card");
+				} else {
+					this.controller.pushAppSupportInfoScene();
+				}
 				break;
 			case Mojo.Menu.helpCmd:
 				this.controller.pushScene({name: 'help'});
