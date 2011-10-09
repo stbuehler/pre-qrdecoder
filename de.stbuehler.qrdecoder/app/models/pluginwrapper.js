@@ -246,3 +246,78 @@ PluginWrapper.BinaryToHex = function BinaryToHex(str) {
 	}
 	return hex.join("");
 }
+
+/* skips invalid chars */
+PluginWrapper.BinaryToUTF8 = function BinaryToUTF8(binary) {
+	var str = '', i, c, c1, seqlen, slen;
+	for (i = 0; i < binary.length; i++) {
+		c = binary.charCodeAt(i);
+		if (0 == (c & 0x80)) { seqlen = 0; }
+		else if (0xC0 == (c & 0xFE)) { continue; /* 0xCO / 0xC1 overlong */ }
+		else if (0xC0 == (c & 0xE0)) { seqlen = 1; c = c & 0x1f; }
+		else if (0xE0 == (c & 0xF0)) { seqlen = 2; c = c & 0x0f; }
+		else if (0xF0 == (c & 0xF8)) { seqlen = 3; c = c & 0x07; }
+		else continue;
+		if (seqlen > binary.length - i) return str;
+		for (slen = seqlen; slen > 0; slen--) {
+			c1 = binary.charCodeAt(++i);
+			if (0x80 != (c1 & 0xC0)) return false;
+			c = (c << 6) | (c1 & 0x3f);
+		}
+		if ((seqlen == 2) && (code < 0x800)) continue; /* overlong */
+		if ((seqlen == 3) && (code < 0x1000)) continue; /* overlong */
+
+		/* exclude surrogates: "high" D800–DBFF and "low" DC00–DFFF */
+		if (c >= 0xD800 && c <= 0xDFFF) continue;
+		/* "noncharacters": last two code points in plane and U+FDD0..U+FDEF */
+		if ((c & 0xFFFE) == 0xFFE || (c >= 0xFDD0 && c <= 0xFDEF)) continue;
+
+		if (c > 0x10FFFF) continue; /* invalid char */
+		str += String.fromCharCode(c);
+	}
+	return str;
+}
+PluginWrapper.HexToUTF8 = function HexToUTF8(hex) {
+	var str = '', i, c, c1, seqlen, slen;
+	for (i = 0; i < hex.length; i += 2) {
+		c = parseInt(hex.substr(i, 2), 16);
+		if (0 == (c & 0x80)) { seqlen = 0; }
+		else if (0xC0 == (c & 0xFE)) { continue; /* 0xCO / 0xC1 overlong */ }
+		else if (0xC0 == (c & 0xE0)) { seqlen = 1; c = c & 0x1f; }
+		else if (0xE0 == (c & 0xF0)) { seqlen = 2; c = c & 0x0f; }
+		else if (0xF0 == (c & 0xF8)) { seqlen = 3; c = c & 0x07; }
+		else continue;
+		if (2*seqlen > hex.length - i) return str;
+		for (slen = seqlen; slen > 0; slen--) {
+			i += 2;
+			c1 = parseInt(hex.substr(i, 2), 16);
+			if (0x80 != (c1 & 0xC0)) return false;
+			c = (c << 6) | (c1 & 0x3f);
+		}
+		if ((seqlen == 2) && (code < 0x800)) continue; /* overlong */
+		if ((seqlen == 3) && (code < 0x1000)) continue; /* overlong */
+		str += String.fromCharCode(c);
+	}
+	return str;
+}
+
+PluginWrapper.UTF8ToBinary = function UTF8ToBinary(str) {
+	var result = '', i, c;
+	for (i = 0; i < str.length; i++) {
+		c = str.charCodeAt(i);
+		if (c < 0x80) {
+			result += String.fromCharCode(c);
+		} else if (c < 0x800) {
+			result += String.fromCharCode(0xC0 | (c >>> 6)) + String.fromCharCode(0x80 | (c & 0x3F));
+		} else if (c < 0x10000) {
+			result += String.fromCharCode(0xE0 | (c >>> 12)) + String.fromCharCode(0x80 | ((c >>> 6) & 0x3F)) + String.fromCharCode(0x80 | (c & 0x3F));
+		} else if (c < 0x110000) {
+			result += String.fromCharCode(0xF0 | (c >>> 18)) + String.fromCharCode(0x80 | ((c >>> 12) & 0x3F)) + String.fromCharCode(0x80 | ((c >>> 6) & 0x3F)) + String.fromCharCode(0x80 | (c & 0x3F));
+		}
+		/* else too high, skip */
+	}
+	return result;
+}
+PluginWrapper.UTF8ToHex = function UTF8ToHex(str) {
+	return PluginWrapper.BinaryToHex(PluginWrapper.UTF8ToBinary(str));
+}

@@ -7,7 +7,7 @@ function decode(pluginwrapper, filename) {
 		if (future.exception) {
 			future.exception = future.exception;
 		} else {
-			future.result = PluginWrapper.HexToBinary(future.result[0]);
+			future.result = PluginWrapper.HexToUTF8(future.result[0]);
 		}
 	});
 	return future;
