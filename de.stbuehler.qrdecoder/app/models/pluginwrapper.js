@@ -264,8 +264,8 @@ PluginWrapper.BinaryToUTF8 = function BinaryToUTF8(binary) {
 			if (0x80 != (c1 & 0xC0)) return false;
 			c = (c << 6) | (c1 & 0x3f);
 		}
-		if ((seqlen == 2) && (code < 0x800)) continue; /* overlong */
-		if ((seqlen == 3) && (code < 0x1000)) continue; /* overlong */
+		if ((seqlen == 2) && (c < 0x800)) continue; /* overlong */
+		if ((seqlen == 3) && (c < 0x1000)) continue; /* overlong */
 
 		/* exclude surrogates: "high" D800–DBFF and "low" DC00–DFFF */
 		if (c >= 0xD800 && c <= 0xDFFF) continue;
@@ -294,8 +294,15 @@ PluginWrapper.HexToUTF8 = function HexToUTF8(hex) {
 			if (0x80 != (c1 & 0xC0)) return false;
 			c = (c << 6) | (c1 & 0x3f);
 		}
-		if ((seqlen == 2) && (code < 0x800)) continue; /* overlong */
-		if ((seqlen == 3) && (code < 0x1000)) continue; /* overlong */
+		if ((seqlen == 2) && (c < 0x800)) continue; /* overlong */
+		if ((seqlen == 3) && (c < 0x1000)) continue; /* overlong */
+
+		/* exclude surrogates: "high" D800–DBFF and "low" DC00–DFFF */
+		if (c >= 0xD800 && c <= 0xDFFF) continue;
+		/* "noncharacters": last two code points in plane and U+FDD0..U+FDEF */
+		if ((c & 0xFFFE) == 0xFFE || (c >= 0xFDD0 && c <= 0xFDEF)) continue;
+
+		if (c > 0x10FFFF) continue; /* invalid char */
 		str += String.fromCharCode(c);
 	}
 	return str;
