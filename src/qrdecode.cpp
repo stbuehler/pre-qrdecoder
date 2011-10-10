@@ -194,12 +194,6 @@ static void init() {
 }
 
 
-// Main-loop workhorse function for displaying the object
-void Display(SDL_Surface *surface, Uint32 color) {
-	SDL_FillRect(surface, NULL, color);
-	SDL_Flip(surface);
-}
-
 int main(int argc, char** argv) {
 	init();
 
@@ -212,15 +206,6 @@ int main(int argc, char** argv) {
 			exit(1);
 		}
 	}
-
-	SDL_Surface* Surface = SDL_SetVideoMode(0, 0, 0, 0);
-	if (!Surface) {
-		std::cerr << "Could not set video mode: " << SDL_GetError() << "\n";
-		exit(1);
-	}
-	Uint32 color = SDL_MapRGBA(Surface->format, 0, 0, 0, 0);
-
-	Display(Surface, color);
 
 	bool signaledReady = false;
 
@@ -236,11 +221,16 @@ int main(int argc, char** argv) {
 			}
 		}
 
+		if (!signaledReady) {
+			if (0 == SDL_PollEvent(NULL)) {
+				/* no event ready, wait 1 second and try calling "ready" again */
+				sleep(1);
+				continue;
+			}
+		}
+
 		SDL_WaitEvent(&Event);
 		switch (Event.type) {
-		case SDL_VIDEOEXPOSE:
-			Display(Surface, color);
-			break;
 		case SDL_USEREVENT:
 			jobqueue();
 			break;
