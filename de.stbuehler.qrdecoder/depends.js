@@ -1,0 +1,9 @@
+enyo.depends(
+	"$enyo/../lib/mediacapture/",
+	"enyo/loader.js",
+	"app/models/pluginwrapper.js",
+	"app/models/highlight.js",
+	"app/models/decode.js",
+	"enyo/qrdecoder.js",
+	"enyo/qrdecoder.css"
+);

@@ -42,8 +42,16 @@ var PluginWrapper = Class.create({
 		var i, method;
 
 		this._plugin = plugin;
-		plugin.ready = this._onReady.bind(this);
-		plugin.asyncResult = this._asyncResult.bind(this);
+		this._enyo = false;
+		if (plugin.addCallback) this._enyo = true;
+
+		if (this._enyo) {
+			plugin.addCallback("ready", this._onReady.bind(this), false);
+			plugin.addCallback("asyncResult", this._asyncResult.bind(this), false);
+		} else {
+			plugin.ready = this._onReady.bind(this);
+			plugin.asyncResult = this._asyncResult.bind(this);
+		}
 		this._runCheck = this._runCheck.bind(this);
 		this._queue = [];
 		this._loaded = false;
@@ -59,6 +67,14 @@ var PluginWrapper = Class.create({
 		for (i = 0; i < asyncmethods.length; i++) {
 			method = asyncmethods[i];
 			this[method] = this._runAsyncMethod(method);
+		}
+	},
+
+	error: function error() {
+		if (this._enyo) {
+			enyo.error.apply(enyo, arguments);
+		} else {
+			Mojo.Log.error.apply(Mojo.Log, arguments);
 		}
 	},
 
@@ -81,11 +97,17 @@ var PluginWrapper = Class.create({
 				future.exception = new Error("plugin died, cannot call method '" + method +"'");
 				return future;
 			}
-			if (!this._plugin || !this._plugin[method]) {
-				future.exception = new Error("plugin has no method '" + method + "'");
-				return;
+			if (this._enyo) {
+				var pargs = [method];
+				Array.prototype.push.apply(pargs, args);
+				future.result = this._plugin.callPluginMethod.apply(this._plugin, pargs);
+			} else {
+				if (!this._plugin || !this._plugin[method]) {
+					future.exception = new Error("plugin has no method '" + method + "'");
+					return;
+				}
+				future.result = this._plugin[method].apply(this.plugin, args);
 			}
-			future.result = this._plugin[method].apply(this.plugin, args);
 		} catch (e) {
 			future.exception = e;
 		}
@@ -118,7 +140,7 @@ var PluginWrapper = Class.create({
 		var f, list, i;
 		f = this._asyncReq[reqid];
 		if (!f) {
-			Mojo.Log.error('asyncResult without request: id=' + reqid);
+			this.error('asyncResult without request: id=' + reqid);
 			return;
 		}
 		/* remove entry */
@@ -145,11 +167,17 @@ var PluginWrapper = Class.create({
 				future.exception = new Error("plugin died, cannot call method '" + method +"'");
 				return future;
 			}
-			if (!this._plugin || !this._plugin[method]) {
-				future.exception = new Error("plugin has no method '" + method + "'");
-				return;
+			if (this._enyo) {
+				var pargs = [method];
+				Array.prototype.push.apply(pargs, args);
+				reqid = this._plugin.callPluginMethod.apply(this._plugin, pargs);
+			} else { 
+				if (!this._plugin || !this._plugin[method]) {
+					future.exception = new Error("plugin has no method '" + method + "'");
+					return;
+				}
+				reqid = this._plugin[method].apply(this._plugin, args);
 			}
-			reqid = this._plugin[method].apply(this._plugin, args);
 			fl = this._asyncReq[reqid];
 			if (fl) {
 				fl.push(future);
@@ -185,6 +213,7 @@ var PluginWrapper = Class.create({
 			q[i]();
 		}
 	},
+
 	_onReady: function _onReady() {
 		/* delay: "JavaScript functions called from the plug-in can not call handler functions." */
 		if (this._loaded) return;
@@ -213,19 +242,29 @@ var PluginWrapper = Class.create({
 			}
 		}
 	},
+	signalDisconnect: function signalDisconnect() {
+		this.error("plugin disconnect");
+		this._pluginCrashed();
+	},
+	
 	_runCheck: function _runCheck() {
 		if (!this._active) {
 			this._checkTimerActive = false;
 			return;
 		}
 		try {
-			if (!this._plugin || !this._plugin.check) {
-				Mojo.Log.error("plugin has no method 'check', probably crashed");
-				return this._pluginCrashed();
+			if (this._enyo) {
+				this._plugin.callPluginMethod("check");
+			} else {
+				if (!this._plugin || !this._plugin.check) {
+					this.error("plugin has no method 'check', probably crashed");
+					return this._pluginCrashed();
+				}
+				this._plugin.check();
 			}
-			this._plugin.check();
 			setTimeout(this._runCheck, 1000);
 		} catch (e) {
+			this.error("runCheck: ", e);
 			this._pluginCrashed();
 		}
 	}
