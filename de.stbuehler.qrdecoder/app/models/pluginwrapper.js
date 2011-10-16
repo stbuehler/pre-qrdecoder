@@ -78,6 +78,14 @@ var PluginWrapper = Class.create({
 		}
 	},
 
+	info: function info() {
+		if (this._enyo) {
+			enyo.info.apply(enyo, arguments);
+		} else {
+			Mojo.Log.info.apply(Mojo.Log, arguments);
+		}
+	},
+
 	deactivate: function deactivate() {
 		if (!this._active) return;
 		this._active = false;
@@ -121,7 +129,11 @@ var PluginWrapper = Class.create({
 				return future;
 			}
 			if (!self._loaded || !self._active) {
+				this.info("pluginwrapper: queuing sync method '" + method + "' call");
 				self._queue.push(self._runSyncMethodInner.bind(self, method, future, arguments));
+				if (self._plugin && self._plugin[method]) {
+					self._onReady();
+				}
 				return future;
 			}
 			self._runSyncMethodInner(method, future, arguments);
@@ -178,6 +190,7 @@ var PluginWrapper = Class.create({
 				}
 				reqid = this._plugin[method].apply(this._plugin, args);
 			}
+			this.info("pluginwrapper: async method '" + method + "'called, reqid = " + reqid);
 			fl = this._asyncReq[reqid];
 			if (fl) {
 				fl.push(future);
@@ -185,6 +198,7 @@ var PluginWrapper = Class.create({
 				this._asyncReq[reqid] = [ future ];
 			}
 		} catch (e) {
+			this.error("calling async method error: " + e);
 			future.exception = e;
 		}
 	},
@@ -197,7 +211,11 @@ var PluginWrapper = Class.create({
 				return future;
 			}
 			if (!self._loaded || !self._active) {
+				this.info("pluginwrapper: queuing async method '" + method + "' call");
 				self._queue.push(self._runAsyncMethodInner.bind(self, method, future, arguments));
+				if (self._plugin && self._plugin[method]) {
+					self._onReady();
+				}
 				return future;
 			}
 			self._runAsyncMethodInner(method, future, arguments);
@@ -216,6 +234,7 @@ var PluginWrapper = Class.create({
 
 	_onReady: function _onReady() {
 		/* delay: "JavaScript functions called from the plug-in can not call handler functions." */
+		this.info("pluginwrapper: onReady triggered");
 		if (this._loaded) return;
 		this._loaded = true;
 		if (!this._active) return;

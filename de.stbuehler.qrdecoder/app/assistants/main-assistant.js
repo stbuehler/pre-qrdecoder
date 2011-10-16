@@ -5,6 +5,7 @@ var MainAssistant = Class.create({
 		this.chooseImage = this.chooseImage.bind(this);
 		this.onImageSelect = this.onImageSelect.bind(this);
 		this.onDecodedImage = this.onDecodedImage.bind(this);
+		this.onLive = this.onLive.bind(this);
 		this.decodeFuture = false;
 		this.decodingSpinnerModel = { spinning: false };
 	},
@@ -19,9 +20,10 @@ var MainAssistant = Class.create({
 		/* use Mojo.View.render to render view templates and add them to the scene, if needed */
 
 		/* setup widgets here */
-		this.controller.setupWidget('buttonDecode', { }, { label: $L('Decode'), disabled: false });
-		this.controller.setupWidget('buttonChoose', { }, { label: $L('Choose from Library'), disabled: false });
-		this.controller.setupWidget('buttonShoot', { }, { label: $L('Take Picture'), disabled: false });
+		this.controller.setupWidget('buttonDecode', { }, { label: $L('Decode last picture'), disabled: false });
+		this.controller.setupWidget('buttonChoose', { }, { label: $L('Choose from library'), disabled: false });
+		this.controller.setupWidget('buttonShoot', { }, { label: $L('Take picture'), disabled: false });
+		this.controller.setupWidget('buttonLive', { }, { label: $L('Live'), disabled: false });
 
 		this.controller.setupWidget('result-textfield', { multiline: true }, { value: '', disabled: false });
 
@@ -35,9 +37,15 @@ var MainAssistant = Class.create({
 		this.controller.listen('buttonDecode', Mojo.Event.tap, this.decodeImage);
 		this.controller.listen('buttonChoose', Mojo.Event.tap, this.chooseImage);
 		this.controller.listen('buttonShoot', Mojo.Event.tap, this.launchCam);
+		this.controller.listen('buttonLive', Mojo.Event.tap, this.onLive);
+
+		this.scrollto_result = false;
 	},
 
 	useImage: function(filename) {
+		if (filename != MainAssistant.imgFilename) {
+			$('buttonDecode').hide();
+		}
 		this.img.src = filename + "?" + (new Date()).getTime(); /* force refresh with ?... */
 		this.currentFilename = filename;
 	},
@@ -64,6 +72,10 @@ var MainAssistant = Class.create({
 		}, this.controller.stageController);
 	},
 
+	onLive: function() {
+		this.controller.stageController.pushScene({name: 'live'}, this, this.plugin);
+	},
+
 	scrollTo: function(element) {
 		Mojo.View.getScrollerForElement(element).mojo.revealElement(element);
 	},
@@ -76,6 +88,7 @@ var MainAssistant = Class.create({
 		$('resultPlainGroup').show();
 		$('errorGroup').hide();
 		this.scrollTo($('bottomScroller'));
+		this.scrollto_result = true;
 	},
 
 	showError: function(resulttext) {
@@ -126,6 +139,11 @@ var MainAssistant = Class.create({
 	},
 
 	activate: function(event) {
+		Mojo.Log.error("main activate");
+		if (this.scrollto_result) {
+			this.scrollto_result = false;
+			this.scrollTo($('bottomScroller'));
+		}
 		this.plugin.activate();
 		if (event && event.filename) {
 			this.useImage(event.filename);
@@ -136,7 +154,9 @@ var MainAssistant = Class.create({
 	},
 
 	deactivate: function(event) {
-		this.plugin.deactivate();
+		Mojo.Log.error("main deactivate");
+		this.scrollto_result = false;
+		// this.plugin.deactivate();
 		/* remove any event handlers you added in activate and do any other cleanup that should happen before
 		   this scene is popped or another scene is pushed on top */
 	},
@@ -152,6 +172,7 @@ var MainAssistant = Class.create({
 		this.controller.stopListening('buttonDecode', Mojo.Event.tap, this.decodeImage);
 		this.controller.stopListening('buttonChoose', Mojo.Event.tap, this.chooseImage);
 		this.controller.stopListening('buttonShoot', Mojo.Event.tap, this.launchCam);
+		this.controller.stopListening('buttonLive', Mojo.Event.tap, this.onLive);
 	},
 });
 

@@ -9,6 +9,10 @@
         "source": "app/assistants/main-assistant.js"
     },
     {
+        "scenes": "live",
+        "source": "app/assistants/live-assistant.js"
+    },
+    {
         "scenes": "help",
         "source": "app/assistants/help-assistant.js"
     }
