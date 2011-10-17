@@ -80,7 +80,7 @@ var PluginWrapper = Class.create({
 
 	info: function info() {
 		if (this._enyo) {
-			enyo.info.apply(enyo, arguments);
+			enyo.log.apply(enyo, arguments);
 		} else {
 			Mojo.Log.info.apply(Mojo.Log, arguments);
 		}
