@@ -82,7 +82,6 @@ var LiveAssistant = Class.create({
 	},
 
 	activate: function(event) {
-		Mojo.Log.error("live activate");
 		this.controller.stageController.setWindowProperties({blockScreenTimeout: true});
 		this.plugin.activate();
 
@@ -96,7 +95,6 @@ var LiveAssistant = Class.create({
 	},
 
 	deactivate: function(event) {
-		Mojo.Log.error("live deactivate");
 		this.controller.stageController.setWindowProperties({blockScreenTimeout: false});
 		// this.plugin.deactivate();
 		this.live_stop = true;

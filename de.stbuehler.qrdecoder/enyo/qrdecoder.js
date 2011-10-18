@@ -9,13 +9,14 @@ enyo.kind({
 	components: [
 		{kind: enyo.PageHeader, content: "QR Decoder"},
 		{kind: enyo.Pane, name: "pane", flex: 1, components: [
-			{kind: enyo.Scroller, autoHorizontal: false, horizontal: false, flex: 1, layoutKind: enyo.VFlexLayout, components: [
+			{kind: enyo.Scroller, name: "mainScroller", autoHorizontal: false, horizontal: false, flex: 1, layoutKind: enyo.VFlexLayout, components: [
 				{kind: enyo.Group, caption: "Image", layoutKind: "VFlexLayout", components: [
 					{kind: enyo.SizeableImage, name: "img", showing: false},
 					{kind: enyo.Button, name: "takepicture", caption: "Take Picture", onclick: "onClickShoot", showing: false},
 					{kind: enyo.Button, caption: "Live Capture", onclick: "startVideo"},
 					{kind: enyo.Button, caption: "Choose from Library", onclick: "onClickChoose"},
-					{kind: enyo.Button, name: "decode", caption: "Decode", onclick: "onClickDecode"}
+					{kind: enyo.Button, name: "decode", caption: "Decode", onclick: "onClickDecode"},
+					{kind: enyo.Button, name: "copyClipboard", caption: "Copy to clipboard", onclick: "copyToClipboard",showing: false},
 				]},
 				{kind: enyo.Group, name: "decodeProgress", caption: "In Progress", layoutKind: "VFlexLayout", align: "center", components: [{ kind: enyo.Spinner, showing: true }], showing: false },
 				{kind: enyo.Group, name: "resultGroup", caption: "Result", layoutKind: "VFlexLayout", components: [
@@ -25,7 +26,8 @@ enyo.kind({
 					{ kind: enyo.Control, allowHtml: false, name: "errortext", content: "" }
 				], showing: false},
 				{kind: enyo.Group, name: "resultPlainGroup", caption: "Plain Text", layoutKind: "VFlexLayout", components: [
-					{ kind: enyo.Control, allowHtml: false, name: "resulttext", content: "" }
+					{ kind: enyo.Input, allowHtml: false, name: "resulttext", value: "",
+						onkeypress: "readonly_keypress",selectAllOnFocus: true, alwaysLooksFocused: true }
 				], showing: false},
 			]},
 			{kind: enyo.VFlexBox, components: [
@@ -38,19 +40,25 @@ enyo.kind({
 		{kind: "ApplicationEvents", onWindowRotated: "windowRotated", onWindowActivated: "windowActivated"},
 		{kind: enyo.Hybrid, executable: "qrdecode_plugin", name: "qrdecodePlugin", cachePlugin: "true", onPluginDisconnected: "onPluginDisconnected"},
 		{kind: enyo.FilePicker, name: "chooseImage", fileType: "image", onPickFile: "onPickFile"},
-		{kind: enyo.MediaCapture, name: "capture", onInitialized: "onCapInitialized", onError: "onCapError", onLoaded: "onCapLoaded", onImageCaptureComplete: "onCapPicture"}, 
+		{kind: enyo.MediaCapture, name: "capture", onInitialized: "onCapInitialized", onError: "onCapError", onLoaded: "onCapLoaded", onImageCaptureComplete: "onCapPicture"},
+		{kind: enyo.AppMenu, components: [
+			{kind: enyo.EditMenu},
+			{caption: "Copy result to clipboard", onclick: "copyToClipboard"}
+		]},
 	],
 
 	create: function() {
 		this.inherited(arguments);
 		this.live = false;
 		this.plugin = new PluginWrapper(this.$.qrdecodePlugin, [], ['decode']);
+		this.resulttext = '';
 
 		var deviceinfo = JSON.parse(PalmSystem.deviceInfo);
 		if (deviceinfo.modelNameAscii == 'TouchPad') {
 			this.$.takepicture.hide();
 		}
 		this.useImage(QRDecoder.imgFilename);
+		enyo.keyboard.setManualMode(true);
 	},
 	destroy: function() {
 		try {
@@ -59,6 +67,10 @@ enyo.kind({
 			enyo.error(e);
 		}
 		this.inherited(arguments);
+	},
+
+	readonly_keypress: function(sender, event) {
+		return false;
 	},
 
 	useImage: function(filename) {
@@ -123,8 +135,7 @@ enyo.kind({
 		} else {
 			this.stopVideo();
 			this.useImage(this.$.capture.lastImagePath);
-			var result = future.result;
-			this.showResult(result);
+			this.showResult(future.result);
 		}
 	},
 	onCapPicture: function() {
@@ -175,34 +186,45 @@ enyo.kind({
 	
 	scrollTo: function(element) {
 		//Mojo.View.getScrollerForElement(element).mojo.revealElement(element);
+		this.$.mainScroller.scrollToBottom();
+	},
+
+	copyToClipboard: function() {
+		enyo.dom.setClipboard(this.resulttext);
 	},
 
 	showResult: function(resulttext) {
+		this.resulttext = resulttext;
 		this.$.result.setContent(highlight(resulttext));
-		this.$.resulttext.setContent(resulttext);
+		this.$.resulttext.setValue(resulttext);
 
 		this.$.resultGroup.show();
 		this.$.resultPlainGroup.show();
 		this.$.errorGroup.hide();
+		this.$.copyClipboard.show();
 		this.scrollTo(this.$.bottomScroller);
 	},
 
 	showError: function(resulttext) {
+		this.resulttext = '';
 		this.$.errortext.setContent(resulttext);
 
 		this.$.resultGroup.hide();
 		this.$.resultPlainGroup.hide();
 		this.$.errorGroup.show();
+		this.$.copyClipboard.hide();
 		this.scrollTo(this.$.bottomScroller);
 	},
 
-	clearResult: function(resulttext) {
+	clearResult: function() {
+		this.resulttext = '';
 		this.$.resultGroup.hide();
 		this.$.resultPlainGroup.hide();
 		this.$.errorGroup.hide();
 		this.$.result.setContent("");
-		this.$.resulttext.setContent("");
+		this.$.resulttext.setValue("");
 		this.$.errortext.setContent("");
+		this.$.copyClipboard.hide();
 	},
 
 	onDecodedImage: function(future) {

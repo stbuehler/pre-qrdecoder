@@ -34,6 +34,7 @@ StageAssistant.appMenuModel = {
 	visible: true,
 	items: [
 		Mojo.Menu.editItem,
+		{ label: $L('Copy result'), command: 'copy-result' },
 		{ label: $L('Support'), command: 'do-support' },
 		{ label: $L('Help'), command: Mojo.Menu.helpCmd }
 	]

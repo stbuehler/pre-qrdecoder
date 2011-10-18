@@ -6,6 +6,7 @@ var MainAssistant = Class.create({
 		this.onImageSelect = this.onImageSelect.bind(this);
 		this.onDecodedImage = this.onDecodedImage.bind(this);
 		this.onLive = this.onLive.bind(this);
+		this.copyToClipboard = this.copyToClipboard.bind(this);
 		this.decodeFuture = false;
 		this.decodingSpinnerModel = { spinning: false };
 	},
@@ -15,6 +16,7 @@ var MainAssistant = Class.create({
 
 		this.plugin = new PluginWrapper($('qrdecodePlugin'), [], ['decode']);
 		this.img = $('qrimage');
+		this.resulttext = '';
 		/* this function is for setup tasks that have to happen when the scene is first created */
 
 		/* use Mojo.View.render to render view templates and add them to the scene, if needed */
@@ -24,8 +26,11 @@ var MainAssistant = Class.create({
 		this.controller.setupWidget('buttonChoose', { }, { label: $L('Choose from library'), disabled: false });
 		this.controller.setupWidget('buttonShoot', { }, { label: $L('Take picture'), disabled: false });
 		this.controller.setupWidget('buttonLive', { }, { label: $L('Live'), disabled: false });
+		this.controller.setupWidget('buttonCopy', { }, { label: $L('Copy result'), disabled: false });
 
-		this.controller.setupWidget('result-textfield', { multiline: true }, { value: '', disabled: false });
+		this.controller.setupWidget('result-textfield',
+			{ multiline: true, focusMode: Mojo.Widget.focusSelectMode },
+			{ value: '', disabled: false });
 
 		this.controller.setupWidget('decodingSpinner', { }, this.decodingSpinnerModel);
 
@@ -38,6 +43,7 @@ var MainAssistant = Class.create({
 		this.controller.listen('buttonChoose', Mojo.Event.tap, this.chooseImage);
 		this.controller.listen('buttonShoot', Mojo.Event.tap, this.launchCam);
 		this.controller.listen('buttonLive', Mojo.Event.tap, this.onLive);
+		this.controller.listen('buttonCopy', Mojo.Event.tap, this.copyToClipboard);
 
 		this.scrollto_result = false;
 	},
@@ -80,33 +86,43 @@ var MainAssistant = Class.create({
 		Mojo.View.getScrollerForElement(element).mojo.revealElement(element);
 	},
 
+	copyToClipboard: function() {
+		this.controller.stageController.setClipboard(this.resulttext, false);
+	},
+
 	showResult: function(resulttext) {
+		this.resulttext = resulttext;
 		$('result').innerHTML = highlight(resulttext);
 		$('result-textfield').mojo.setValue(resulttext);
 
 		$('resultGroup').show();
 		$('resultPlainGroup').show();
 		$('errorGroup').hide();
+		$('buttonCopy').show();
 		this.scrollTo($('bottomScroller'));
 		this.scrollto_result = true;
 	},
 
 	showError: function(resulttext) {
+		this.resulttext = '';
 		$('error-text').innerHTML = resulttext;
 
 		$('resultGroup').hide();
 		$('resultPlainGroup').hide();
 		$('errorGroup').show();
+		$('buttonCopy').hide();
 		this.scrollTo($('bottomScroller'));
 	},
 
-	clearResult: function(resulttext) {
+	clearResult: function() {
+		this.resulttext = '';
 		$('resultGroup').hide();
 		$('result').innerHTML = '';
 		$('resultPlainGroup').hide();
 		$('result-textfield').mojo.setValue('');
 		$('errorGroup').hide();
 		$('error-text').innerHTML = '';
+		$('buttonCopy').hide();
 	},
 
 	onDecodedImage: function(future) {
@@ -139,7 +155,6 @@ var MainAssistant = Class.create({
 	},
 
 	activate: function(event) {
-		Mojo.Log.error("main activate");
 		if (this.scrollto_result) {
 			this.scrollto_result = false;
 			this.scrollTo($('bottomScroller'));
@@ -154,7 +169,6 @@ var MainAssistant = Class.create({
 	},
 
 	deactivate: function(event) {
-		Mojo.Log.error("main deactivate");
 		this.scrollto_result = false;
 		// this.plugin.deactivate();
 		/* remove any event handlers you added in activate and do any other cleanup that should happen before
@@ -173,6 +187,17 @@ var MainAssistant = Class.create({
 		this.controller.stopListening('buttonChoose', Mojo.Event.tap, this.chooseImage);
 		this.controller.stopListening('buttonShoot', Mojo.Event.tap, this.launchCam);
 		this.controller.stopListening('buttonLive', Mojo.Event.tap, this.onLive);
+		this.controller.stopListening('buttonCopy', Mojo.Event.tap, this.copyToClipboard);
+	},
+
+	handleCommand: function(event) {
+		if (event.type == Mojo.Event.command) {
+			switch (event.command) {
+			case 'copy-result':
+				this.copyToClipboard();
+				break;
+			}
+		}
 	},
 });
 
