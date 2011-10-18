@@ -7,7 +7,8 @@ function decode(pluginwrapper, filename) {
 		if (future.exception) {
 			future.exception = future.exception;
 		} else {
-			future.result = PluginWrapper.HexToUTF8(future.result[0]);
+			var result = future.result;
+			future.result = { text: PluginWrapper.HexToUTF8(result[0]), barcodeformat: result[1] };
 		}
 	});
 	return future;

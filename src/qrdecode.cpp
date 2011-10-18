@@ -75,12 +75,13 @@ void plugin_decode_exception(const char *msg) {
 	}
 }
 
-void plugin_decode_success(const char *result) {
-	const char *params[3];
+void plugin_decode_success(const char *result, const char *barcodeFormat) {
+	const char *params[4];
 	params[0] = DECODE_REQUEST_ID;
 	params[1] = "";
 	params[2] = result;
-	PDL_Err mjErr = PDL_CallJS("asyncResult", params, 3);
+	params[3] = barcodeFormat;
+	PDL_Err mjErr = PDL_CallJS("asyncResult", params, 4);
 	if ( mjErr != PDL_NOERROR ) {
 		std::cerr << "PDL_CallJS error (" << mjErr << "): " << PDL_GetError() << "\n";
 	}
@@ -102,7 +103,7 @@ void plugin_decode(std::string filename) {
 		std::string hexResult = hexEncode(result->getText()->getText());
 		std::cout << "Decode result(hex): " << hexResult << "\n";
 	
-		plugin_decode_success(hexResult.c_str());
+		plugin_decode_success(hexResult.c_str(), zxing::barcodeFormatNames[result->getBarcodeFormat()]);
 	} catch (std::exception &e) {
 		plugin_decode_exception(e.what());
 		std::cerr << "Decoding failed: " << e.what() << "\n";

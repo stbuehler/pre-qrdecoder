@@ -133,9 +133,10 @@ enyo.kind({
 			enyo.log('onLiveDecodedImage: decoding failed: ' +future.exception);
 			this.$.capture.startImageCapture(QRDecoder.liveImgFilename, QRDecoder.liveImgOptions);
 		} else {
+			var result = future.result;
 			this.stopVideo();
 			this.useImage(this.$.capture.lastImagePath);
-			this.showResult(future.result);
+			this.showResult(result.text, result.barcodeformat);
 		}
 	},
 	onCapPicture: function() {
@@ -193,10 +194,11 @@ enyo.kind({
 		enyo.dom.setClipboard(this.resulttext);
 	},
 
-	showResult: function(resulttext) {
+	showResult: function(resulttext, barcodeformat) {
 		this.resulttext = resulttext;
-		this.$.result.setContent(highlight(resulttext));
+		this.$.result.setContent(highlight(resulttext, barcodeformat));
 		this.$.resulttext.setValue(resulttext);
+		this.$.resultGroup.setCaption('Result (' + barcodeformat + ')');
 
 		this.$.resultGroup.show();
 		this.$.resultPlainGroup.show();
@@ -236,7 +238,7 @@ enyo.kind({
 			this.showError('decoding failed: ' + future.exception);
 		} else {
 			var result = future.result;
-			this.showResult(result);
+			this.showResult(result.text, result.barcodeformat);
 		}
 	},
 

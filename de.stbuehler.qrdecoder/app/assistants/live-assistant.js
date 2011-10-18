@@ -66,9 +66,10 @@ var LiveAssistant = Class.create({
 					Mojo.Log.error("pictureTaken/live decoding failed: " + future.exception);
 					this.takePicture();
 				} else {
+					var result = future.result;
 					this.controller.stageController.popScene(this);
 					this.mainscene.useImage(LiveAssistant.imgFilename);
-					this.mainscene.showResult(future.result);
+					this.mainscene.showResult(result.text, result.barcodeformat);
 				}
 			} catch (e) {
 				Mojo.Log.error("pictureTaken/decoded exception" + e);

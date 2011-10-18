@@ -37,6 +37,7 @@ static void decode_cli(const char *filename) {
 		Ref<Result> result(qrDecode(source));
 
 		std::cout << "Decode result: " << *result << "\n";
+		std::cout << "Barcode Format: " << zxing::barcodeFormatNames[result->getBarcodeFormat()] << "\n";
 	} catch (std::exception &e) {
 		std::cerr << "Decoding failed: " << e.what() << "\n";
 	} catch (...) {

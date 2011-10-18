@@ -90,9 +90,9 @@ var MainAssistant = Class.create({
 		this.controller.stageController.setClipboard(this.resulttext, false);
 	},
 
-	showResult: function(resulttext) {
+	showResult: function(resulttext, barcodeformat) {
 		this.resulttext = resulttext;
-		$('result').innerHTML = highlight(resulttext);
+		$('result').innerHTML = highlight(resulttext, barcodeformat);
 		$('result-textfield').mojo.setValue(resulttext);
 
 		$('resultGroup').show();
@@ -135,7 +135,7 @@ var MainAssistant = Class.create({
 			this.showError('decoding failed: ' + future.exception);
 		} else {
 			var result = future.result;
-			this.showResult(result);
+			this.showResult(result.text, result.barcodeformat);
 		}
 	},
 
