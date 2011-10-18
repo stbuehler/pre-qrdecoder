@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 63
-/svn/!svn/ver/1355/trunk/cpp/core/src/zxing/datamatrix/detector
+/svn/!svn/ver/1962/trunk/cpp/core/src/zxing/datamatrix/detector
 END
 Detector.h
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/svn/!svn/ver/1217/trunk/cpp/core/src/zxing/datamatrix/detector/Detector.h
+/svn/!svn/ver/1962/trunk/cpp/core/src/zxing/datamatrix/detector/Detector.h
 END
 CornerPoint.cpp
 K 25
@@ -31,7 +31,7 @@ Detector.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/svn/!svn/ver/1343/trunk/cpp/core/src/zxing/datamatrix/detector/Detector.cpp
+/svn/!svn/ver/1962/trunk/cpp/core/src/zxing/datamatrix/detector/Detector.cpp
 END
 MonochromeRectangleDetector.h
 K 25

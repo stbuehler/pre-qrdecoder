@@ -1,15 +1,15 @@
 10
 
 dir
-1948
+1979
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/datamatrix/decoder
 http://zxing.googlecode.com/svn
 
 
 
-2010-05-07T17:10:06.636969Z
-1343
-dmaclach
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2011-04-21T13:08:36.000000Z
-3174f93a9476bbba23d7133d3663d03a
-2010-02-23T23:50:08.498613Z
-1217
-luizcroc
+2011-10-18T19:37:02.548337Z
+0f6f58096bbc803c8e11810e6fea8a54
+2011-10-11T19:39:56.903683Z
+1956
+smparkes@smparkes.net
 
 
 
@@ -58,7 +58,7 @@ luizcroc
 
 
 
-13548
+13551
 
 BitMatrixParser.cpp
 file
@@ -202,11 +202,11 @@ file
 
 
 
-2011-04-21T13:08:36.000000Z
-f9019715a053465566884aec19994af0
-2010-02-23T23:50:08.498613Z
-1217
-luizcroc
+2011-10-18T19:37:02.548337Z
+2993dc499029b9d0c3c64767c1215cfb
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -228,7 +228,7 @@ luizcroc
 
 
 
-3218
+3196
 
 DataBlock.h
 file

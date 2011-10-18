@@ -1,15 +1,15 @@
 10
 
 dir
-1948
+1979
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/common
 http://zxing.googlecode.com/svn
 
 
 
-2010-12-22T17:31:16.107270Z
-1689
-rpechayr
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
 
 
 
@@ -230,17 +230,51 @@ flyashi
 
 1157
 
+ECI.h
+file
+
+
+
+
+2011-10-18T19:37:00.440326Z
+0930b0ea165e218fb22e57f6e0adbbf3
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+941
+
 DetectorResult.cpp
 file
 
 
 
 
-2011-04-21T13:08:35.000000Z
-4e400258eebdb215168e7603cbebbdcb
-2009-11-01T17:30:30.307166Z
-1092
-ralf.kistner@gmail.com
+2011-10-18T19:37:00.440326Z
+ff46478bb962a4732ff04012e32bb5b3
+2011-10-12T18:11:40.727974Z
+1962
+smparkes@smparkes.net
 
 
 
@@ -262,7 +296,7 @@ ralf.kistner@gmail.com
 
 
 
-1188
+1259
 
 BitMatrix.h
 file
@@ -270,11 +304,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-7bd63ffde9c73394c70788d377ea3f4d
-2010-08-20T20:24:20.620954Z
-1551
-flyashi
+2011-10-18T19:37:00.440326Z
+a2e744a9148999de08289aa82661bcc6
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
 
 
 
@@ -296,7 +330,7 @@ flyashi
 
 
 
-1667
+2320
 
 DecoderResult.h
 file
@@ -304,11 +338,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-9d76c2db8c7bbfe41d692f0fd009ec8d
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-10-18T19:37:00.440326Z
+6a4744bc0e955bfd9b8453df73f45f6d
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -330,7 +364,7 @@ flyashi
 
 
 
-1135
+1410
 
 GridSampler.cpp
 file
@@ -474,11 +508,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-9a01c807153a2142669a3e1b2ce78a4b
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-10-18T19:37:00.440326Z
+001b878d2cf4dfdac071c9fa3662fae5
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
 
 
 
@@ -500,7 +534,7 @@ flyashi
 
 
 
-1447
+1685
 
 GlobalHistogramBinarizer.cpp
 file
@@ -508,11 +542,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-e901427e4f521a72067469db76f275c8
-2010-08-25T19:03:32.237359Z
-1562
-dswitkin@google.com
+2011-10-18T19:37:00.440326Z
+cd1b15dd186d73fa7ef5f932ca78a63c
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -534,7 +568,7 @@ dswitkin@google.com
 
 
 
-6403
+6469
 
 PerspectiveTransform.cpp
 file
@@ -576,11 +610,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-9e539ca65fb9e514226ac514a0369011
-2010-08-12T20:24:38.580816Z
-1523
-srowen
+2011-10-18T19:37:00.440326Z
+de2f449791edac53c32a544cf10748f9
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
 
 
 
@@ -602,41 +636,7 @@ srowen
 
 
 
-5261
-
-IllegalArgumentException.cpp
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-b380393335c95e1cb5b78e28e89696e5
-2009-11-01T17:30:30.307166Z
-1092
-ralf.kistner@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-947
+6987
 
 GreyscaleLuminanceSource.cpp
 file
@@ -672,6 +672,74 @@ dswitkin@google.com
 
 2574
 
+IllegalArgumentException.cpp
+file
+
+
+
+
+2011-04-21T13:08:35.000000Z
+b380393335c95e1cb5b78e28e89696e5
+2009-11-01T17:30:30.307166Z
+1092
+ralf.kistner@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+947
+
+StringUtils.h
+file
+
+
+
+
+2011-10-18T19:37:00.440326Z
+36b980ab7de3e797db1c52264b62d23d
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1410
+
 EdgeDetector.cpp
 file
 
@@ -706,17 +774,85 @@ ralf.kistner@gmail.com
 
 5103
 
+CharacterSetECI.h
+file
+
+
+
+
+2011-10-18T19:37:00.440326Z
+2f009e6d7a835b3bc89ca7e10805c86c
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1554
+
+ECI.cpp
+file
+
+
+
+
+2011-10-18T19:37:00.440326Z
+2a385e79ef172386bd261003fc12200c
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1239
+
 BitMatrix.cpp
 file
 
 
 
 
-2011-04-21T13:08:35.000000Z
-c0d60d213e02e9659c68d98fafb6a4a0
-2010-12-22T17:31:16.107270Z
-1689
-rpechayr
+2011-10-18T19:37:00.440326Z
+14a659f8d60be4b5f05a54ed4c366c10
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
 
 
 
@@ -738,41 +874,7 @@ rpechayr
 
 
 
-4795
-
-DecoderResult.cpp
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-feeb2de195566cca73e646eb4de13645
-2009-12-09T11:06:01.159314Z
-1145
-ralf.kistner@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1066
+4460
 
 BitSource.h
 file
@@ -808,6 +910,40 @@ flyashi
 
 1894
 
+DecoderResult.cpp
+file
+
+
+
+
+2011-10-18T19:37:00.444326Z
+7a7d8df9eb7673364cab5971496ed964
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1539
+
 reedsolomon
 dir
 
@@ -817,11 +953,11 @@ file
 
 
 
-2011-04-21T22:15:14.000000Z
-06ac772fb3305df5d9aaa6d9cb3ec9b1
-2010-08-13T16:20:03.411206Z
-1527
-dswitkin@google.com
+2011-10-18T19:37:00.444326Z
+2bfa397e0ed85045139d4d87e904b219
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
 
 
 
@@ -843,7 +979,7 @@ dswitkin@google.com
 
 
 
-4582
+4543
 
 Str.cpp
 file
@@ -879,40 +1015,6 @@ dmaclach
 
 986
 
-BitArray.cpp
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-7115186b36c382b95bb83afa1c81b330
-2010-08-26T14:46:31.562210Z
-1566
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3162
-
 DetectorResult.h
 file
 
@@ -946,6 +1048,40 @@ flyashi
 
 
 1369
+
+BitArray.cpp
+file
+
+
+
+
+2011-10-18T19:37:00.468327Z
+994ecd13d873440eadaa5c329a5df38b
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3743
 
 GridSampler.h
 file
@@ -981,6 +1117,40 @@ flyashi
 
 1538
 
+Array.h
+file
+
+
+
+
+2011-10-18T19:37:00.468327Z
+d18e9d5b14d825121961adec2b718146
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5066
+
 GreyscaleRotatedLuminanceSource.h
 file
 
@@ -1015,17 +1185,17 @@ dswitkin@google.com
 
 1436
 
-Array.h
+StringUtils.cpp
 file
 
 
 
 
-2011-04-21T13:08:35.000000Z
-eab8213ed6a51f7feaa283d0a0f640b1
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-10-18T19:37:00.468327Z
+7f5aa3e9b62c64a1a272571123b985d4
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -1047,7 +1217,7 @@ flyashi
 
 
 
-5049
+6530
 
 GlobalHistogramBinarizer.h
 file
@@ -1082,6 +1252,40 @@ flyashi
 
 
 1415
+
+CharacterSetECI.cpp
+file
+
+
+
+
+2011-10-18T19:37:00.468327Z
+a411ba5357dbefdaedb107d1608d7be6
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2978
 
 PerspectiveTransform.h
 file
@@ -1123,11 +1327,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-62489c717f9c3cef53a9586623c63145
-2010-08-12T20:24:38.580816Z
-1523
-srowen
+2011-10-18T19:37:00.468327Z
+f54002b361ef298734f876b443a02b3e
+2011-10-15T00:58:10.434042Z
+1974
+smparkes@smparkes.net
 
 
 
@@ -1149,5 +1353,5 @@ srowen
 
 
 
-1855
+2329
 

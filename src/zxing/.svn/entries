@@ -1,14 +1,14 @@
 10
 
 dir
-1948
+1979
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing
 http://zxing.googlecode.com/svn
 
 
 
-2011-09-02T21:40:29.842569Z
-1902
+2011-10-15T00:58:10.434042Z
+1974
 smparkes@smparkes.net
 
 
@@ -26,51 +26,17 @@ smparkes@smparkes.net
 
 59b500cc-1b3d-0410-9834-0bbf25fbcc57
 
-DecodeHints.h
-file
-
-
-
-
-2011-04-21T13:08:38.000000Z
-413a29b9bcf8bb346e9486f0176158c0
-2010-08-12T20:51:09.108403Z
-1524
-srowen
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2235
-
 Exception.cpp
 file
 
 
 
 
-2011-04-21T13:08:38.000000Z
-05ce9c63105da806d26da3cfb487a9c7
-2010-05-04T21:44:53.303733Z
-1334
-dmaclach
+2011-10-18T19:37:02.808338Z
+28315b045e70f742a29fa3b0ceb98f23
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -92,7 +58,41 @@ dmaclach
 
 
 
-371
+1033
+
+DecodeHints.h
+file
+
+
+
+
+2011-10-18T19:37:02.808338Z
+505c3740d0a89959ebc55715bdac3c4b
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2290
 
 LuminanceSource.h
 file
@@ -100,11 +100,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-ae14079dba481f25e2b65755aac89155
-2010-08-24T18:59:26.314472Z
-1556
-dswitkin@google.com
+2011-10-18T19:37:02.808338Z
+9ec6f06c02237370a2066e6a5ff1a272
+2011-10-12T17:02:48.386533Z
+1960
+smparkes@smparkes.net
 
 
 
@@ -126,7 +126,7 @@ dswitkin@google.com
 
 
 
-1424
+1635
 
 Reader.cpp
 file
@@ -168,11 +168,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-2fb0766441852ed16694326134c6b1a6
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-10-18T19:37:02.808338Z
+adfc4ac640c08102ae133c0696fc835f
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -194,7 +194,7 @@ flyashi
 
 
 
-979
+994
 
 oned
 dir
@@ -233,6 +233,9 @@ dswitkin@google.com
 
 771
 
+common
+dir
+
 Reader.h
 file
 
@@ -267,8 +270,39 @@ has-props
 
 1057
 
-common
-dir
+FormatException.cpp
+file
+
+
+
+
+2011-10-18T19:37:02.808338Z
+379b522acc7634d82b533232f0b2f205
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1008
 
 BarcodeFormat.cpp
 file
@@ -338,6 +372,43 @@ srowen
 
 1048
 
+FormatException.h
+file
+
+
+
+
+2011-10-18T19:37:02.808338Z
+cbe9fc81e9258b9574211891a2e404dd
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+957
+
+datamatrix
+dir
+
 BarcodeFormat.h
 file
 
@@ -372,20 +443,17 @@ flyashi
 
 1178
 
-datamatrix
-dir
-
 Result.cpp
 file
 
 
 
 
-2011-04-21T13:08:38.000000Z
-4a1f9e3317e48c4e531f3e0aefb26b69
-2010-05-04T21:44:53.303733Z
-1334
-dmaclach
+2011-10-18T19:37:02.808338Z
+102a0107c155f0a87961d87f39979b51
+2011-10-12T18:11:40.727974Z
+1962
+smparkes@smparkes.net
 
 
 
@@ -407,7 +475,7 @@ dmaclach
 
 
 
-1525
+1596
 
 ReaderException.cpp
 file
@@ -415,11 +483,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-c9afc1affdb35624a9b8684c31a613e5
-2009-11-01T17:30:30.307166Z
-1092
-ralf.kistner@gmail.com
+2011-10-18T19:37:02.808338Z
+5bd5f15ede02f57a6a16b7cd8a3a6863
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -441,7 +509,7 @@ ralf.kistner@gmail.com
 
 
 
-890
+1007
 
 BinaryBitmap.cpp
 file
@@ -517,11 +585,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-f6b1a5c11655844943552e37bb9edc38
-2010-07-13T18:43:54.622376Z
-1480
-flyashi
+2011-10-18T19:37:02.812338Z
+bfc4a77dd41367948a20b3df732d1db3
+2011-10-12T18:11:40.727974Z
+1962
+smparkes@smparkes.net
 
 
 
@@ -543,7 +611,7 @@ flyashi
 
 
 
-986
+1060
 
 MultiFormatReader.cpp
 file
@@ -551,11 +619,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-cfefef59eeda5ab2e05ed2c7c558e5a4
-2010-08-06T18:59:07.024538Z
-1510
-flyashi
+2011-10-18T19:37:02.812338Z
+c19ebba8aa5adf01a7efca1a3485a322
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -577,7 +645,7 @@ flyashi
 
 
 
-3592
+3599
 
 ReaderException.h
 file
@@ -585,11 +653,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-be4ba734bedc2f658da190ffe719c5b0
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-10-18T19:37:02.812338Z
+afdf61010624d0727880c378f558fa75
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -611,7 +679,7 @@ flyashi
 
 
 
-924
+945
 
 BinaryBitmap.h
 file
@@ -687,11 +755,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-6646318c175b4b3e5f227882d03db384
-2010-08-12T20:51:09.108403Z
-1524
-srowen
+2011-10-18T19:37:02.812338Z
+e43bb42011853574634914e84d9a1c10
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -713,7 +781,7 @@ srowen
 
 
 
-3913
+3963
 
 Binarizer.h
 file
@@ -792,11 +860,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-d1a75ba0713b2486647effceb19bf2d2
-2010-08-24T18:59:26.314472Z
-1556
-dswitkin@google.com
+2011-10-18T19:37:02.816338Z
+207353107af0c63e2f0e8e540b5d36e5
+2011-10-12T17:02:48.386533Z
+1960
+smparkes@smparkes.net
 
 
 
@@ -818,7 +886,7 @@ dswitkin@google.com
 
 
 
-1313
+1941
 
 ResultPoint.h
 file

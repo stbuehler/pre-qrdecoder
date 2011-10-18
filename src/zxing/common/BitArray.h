@@ -1,3 +1,4 @@
+// -*- mode:c++; tab-width:2; indent-tabs-mode:nil; c-basic-offset:2 -*-
 #ifndef __BIT_ARRAY_H__
 #define __BIT_ARRAY_H__
 
@@ -41,9 +42,17 @@ public:
   BitArray(size_t size);
   ~BitArray();
   size_t getSize();
-  bool get(size_t i);
-  void set(size_t i);
+
+  bool get(size_t i) {
+    return (bits_[i >> logBits_] & (1 << (i & bitsMask_))) != 0;
+  }
+
+  void set(size_t i) {
+    bits_[i >> logBits_] |= 1 << (i & bitsMask_);
+  }
+
   void setBulk(size_t i, unsigned int newBits);
+  void setRange(int start, int end);
   void clear();
   bool isRange(size_t start, size_t end, bool value);
   std::vector<unsigned int>& getBitArray();

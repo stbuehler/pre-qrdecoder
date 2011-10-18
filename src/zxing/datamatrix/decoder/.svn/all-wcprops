@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/svn/!svn/ver/1343/trunk/cpp/core/src/zxing/datamatrix/decoder
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/datamatrix/decoder
 END
 DecodedBitStreamParser.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/svn/!svn/ver/1217/trunk/cpp/core/src/zxing/datamatrix/decoder/DecodedBitStreamParser.cpp
+/svn/!svn/ver/1956/trunk/cpp/core/src/zxing/datamatrix/decoder/DecodedBitStreamParser.cpp
 END
 BitMatrixParser.cpp
 K 25
@@ -37,7 +37,7 @@ Decoder.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/svn/!svn/ver/1217/trunk/cpp/core/src/zxing/datamatrix/decoder/Decoder.cpp
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/datamatrix/decoder/Decoder.cpp
 END
 DataBlock.h
 K 25

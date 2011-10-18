@@ -1,15 +1,15 @@
 10
 
 dir
-1948
+1979
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/oned
 http://zxing.googlecode.com/svn
 
 
 
-2011-07-23T14:09:14.869677Z
-1862
-srowen
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -25,40 +25,6 @@ srowen
 
 
 59b500cc-1b3d-0410-9834-0bbf25fbcc57
-
-UPCEANReader.cpp
-file
-
-
-
-
-2011-04-21T13:08:34.000000Z
-d66085125c1701dab4ddf446f3cef8af
-2011-03-29T11:40:25.562716Z
-1730
-rpechayr
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-10063
 
 OneDResultPoint.cpp
 file
@@ -93,6 +59,40 @@ dswitkin@google.com
 
 
 946
+
+UPCEANReader.cpp
+file
+
+
+
+
+2011-04-21T13:08:34.000000Z
+d66085125c1701dab4ddf446f3cef8af
+2011-03-29T11:40:25.562716Z
+1730
+rpechayr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10063
 
 EAN13Reader.h
 file
@@ -162,40 +162,6 @@ dswitkin@google.com
 
 1072
 
-UPCEANReader.h
-file
-
-
-
-
-2011-04-21T13:08:34.000000Z
-0922c9d3e897aaa359f647cd2e9996e7
-2011-03-29T11:40:25.562716Z
-1730
-rpechayr
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2692
-
 OneDResultPoint.h
 file
 
@@ -230,17 +196,51 @@ flyashi
 
 1019
 
+UPCEANReader.h
+file
+
+
+
+
+2011-04-21T13:08:34.000000Z
+0922c9d3e897aaa359f647cd2e9996e7
+2011-03-29T11:40:25.562716Z
+1730
+rpechayr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2692
+
 ITFReader.cpp
 file
 
 
 
 
-2011-09-11T11:30:13.414689Z
-a3b6b8f2b3494086ccb6588da7f5e639
-2011-07-23T14:09:14.869677Z
-1862
-srowen
+2011-10-18T19:36:58.528317Z
+468cd6ee22704ba34c44e67e105bc6b3
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -262,7 +262,7 @@ srowen
 
 
 
-12751
+12772
 
 OneDReader.cpp
 file
@@ -270,11 +270,11 @@ file
 
 
 
-2011-04-21T13:08:34.000000Z
-2f809fb44115eb0bc16d79e66a3cd3fe
-2010-08-18T18:31:49.553716Z
-1547
-dswitkin@google.com
+2011-10-18T19:36:58.532317Z
+d9d773b8dcf6e17f5893729ff8dc625c
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -296,7 +296,7 @@ dswitkin@google.com
 
 
 
-7902
+7989
 
 Code39Reader.cpp
 file
@@ -434,40 +434,6 @@ dswitkin@google.com
 
 1616
 
-Code39Reader.h
-file
-
-
-
-
-2011-04-21T13:08:34.000000Z
-3eedbed7e32869de898b5178ce58b644
-2010-08-06T19:04:19.180316Z
-1511
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1750
-
 EAN8Reader.cpp
 file
 
@@ -501,6 +467,40 @@ dswitkin@google.com
 
 
 2269
+
+Code39Reader.h
+file
+
+
+
+
+2011-04-21T13:08:34.000000Z
+3eedbed7e32869de898b5178ce58b644
+2010-08-06T19:04:19.180316Z
+1511
+flyashi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1750
 
 UPCEReader.cpp
 file
@@ -712,11 +712,11 @@ file
 
 
 
-2011-09-11T11:30:13.414689Z
-492614aafe5d98a6179acd8ee175f3be
-2011-07-14T18:32:23.445158Z
-1858
-srowen
+2011-10-18T19:36:58.532317Z
+eb015bca99ef4dd79c7102759ad90c01
+2011-10-13T15:21:13.400743Z
+1966
+smparkes@smparkes.net
 
 
 
@@ -738,7 +738,7 @@ srowen
 
 
 
-15113
+15120
 
 EAN13Reader.cpp
 file

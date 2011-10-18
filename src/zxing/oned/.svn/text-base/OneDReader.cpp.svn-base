@@ -1,3 +1,4 @@
+// -*- mode:c++; tab-width:2; indent-tabs-mode:nil; c-basic-offset:2 -*-
 /*
  *  OneDReader.cpp
  *  ZXing
@@ -88,9 +89,9 @@ namespace zxing {
         // Estimate black point for this row and load it:
         try {
           row = image->getBlackRow(rowNumber, row);
-        } catch (ReaderException re) {
+        } catch (ReaderException const& re) {
           continue;
-        } catch (IllegalArgumentException re) {
+        } catch (IllegalArgumentException const& re) {
           continue;
         }
 

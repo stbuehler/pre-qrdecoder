@@ -1,14 +1,14 @@
 10
 
 dir
-1948
+1979
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/qrcode/detector
 http://zxing.googlecode.com/svn
 
 
 
-2011-09-02T21:40:29.842569Z
-1902
+2011-10-13T15:21:13.400743Z
+1966
 smparkes@smparkes.net
 
 
@@ -66,11 +66,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-ea79563d4b8a10d6f6ba853f4f907b12
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-10-18T19:37:02.744338Z
+6e0dceee897058da9ed70b5f20466038
+2011-10-12T16:41:57.706684Z
+1959
+smparkes@smparkes.net
 
 
 
@@ -92,7 +92,7 @@ flyashi
 
 
 
-1177
+1385
 
 QREdgeDetector.cpp
 file
@@ -202,11 +202,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-16243dad7823e5c01e56256c54fc83cb
-2010-08-12T20:51:09.108403Z
-1524
-srowen
+2011-10-18T19:37:02.744338Z
+237084ec4ab93c9988c81fa9d5781b7f
+2011-10-12T16:41:57.706684Z
+1959
+smparkes@smparkes.net
 
 
 
@@ -228,7 +228,7 @@ srowen
 
 
 
-6957
+6987
 
 FinderPattern.cpp
 file
@@ -236,11 +236,11 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-e8fd1fa938be78cb4f1fb8ba4e6e09a7
-2010-05-04T21:44:53.303733Z
-1334
-dmaclach
+2011-10-18T19:37:02.748338Z
+63ad6209b8a494915ac5cdd084a1bf89
+2011-10-12T16:41:57.706684Z
+1959
+smparkes@smparkes.net
 
 
 
@@ -262,7 +262,7 @@ dmaclach
 
 
 
-1656
+2742
 
 QREdgeDetector.h
 file
@@ -338,10 +338,10 @@ file
 
 
 
-2011-09-11T11:30:13.434690Z
-53b096d5c1407b021e941a3c88a1e8b3
-2011-09-02T21:40:29.842569Z
-1902
+2011-10-18T19:37:02.748338Z
+2e7e3abdc4e6ef7653b315cee051ca2c
+2011-10-13T15:21:13.400743Z
+1966
 smparkes@smparkes.net
 
 
@@ -364,7 +364,7 @@ smparkes@smparkes.net
 
 
 
-11661
+11668
 
 AlignmentPatternFinder.h
 file
@@ -406,78 +406,10 @@ file
 
 
 
-2011-04-21T13:08:38.000000Z
-07c21599b62f09e9f18b2605b7572092
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1265
-
-AlignmentPattern.cpp
-file
-
-
-
-
-2011-04-21T13:08:38.000000Z
-c1d5a1f4917c26992a953e89478e36ce
-2010-05-04T21:44:53.303733Z
-1334
-dmaclach
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1394
-
-FinderPatternFinder.cpp
-file
-
-
-
-
-2011-06-22T15:38:57.581033Z
-62bbdb374f0cb20868154a5c50dfbb7d
-2011-06-09T20:00:14.236571Z
-1817
+2011-10-18T19:37:02.748338Z
+7618a983b1b97b65f722c76a0d97ca85
+2011-10-12T16:41:57.706684Z
+1959
 smparkes@smparkes.net
 
 
@@ -500,5 +432,73 @@ smparkes@smparkes.net
 
 
 
-17978
+1500
+
+AlignmentPattern.cpp
+file
+
+
+
+
+2011-10-18T19:37:02.748338Z
+d240ffa14bc9de494e3467ee61995ee3
+2011-10-12T16:41:57.706684Z
+1959
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1880
+
+FinderPatternFinder.cpp
+file
+
+
+
+
+2011-10-18T19:37:02.748338Z
+524cf7f82d080dc947d79ca7cccd0607
+2011-10-12T16:41:57.706684Z
+1959
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+18115
 

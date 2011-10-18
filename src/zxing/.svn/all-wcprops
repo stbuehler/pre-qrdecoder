@@ -1,25 +1,25 @@
 K 25
 svn:wc:ra_dav:version-url
 V 43
-/svn/!svn/ver/1902/trunk/cpp/core/src/zxing
-END
-Exception.cpp
-K 25
-svn:wc:ra_dav:version-url
-V 57
-/svn/!svn/ver/1334/trunk/cpp/core/src/zxing/Exception.cpp
+/svn/!svn/ver/1974/trunk/cpp/core/src/zxing
 END
 DecodeHints.h
 K 25
 svn:wc:ra_dav:version-url
 V 57
-/svn/!svn/ver/1524/trunk/cpp/core/src/zxing/DecodeHints.h
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/DecodeHints.h
+END
+Exception.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/Exception.cpp
 END
 LuminanceSource.h
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/!svn/ver/1556/trunk/cpp/core/src/zxing/LuminanceSource.h
+/svn/!svn/ver/1960/trunk/cpp/core/src/zxing/LuminanceSource.h
 END
 Reader.cpp
 K 25
@@ -31,7 +31,7 @@ Exception.h
 K 25
 svn:wc:ra_dav:version-url
 V 55
-/svn/!svn/ver/1506/trunk/cpp/core/src/zxing/Exception.h
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/Exception.h
 END
 ResultPointCallback.cpp
 K 25
@@ -45,6 +45,12 @@ svn:wc:ra_dav:version-url
 V 52
 /svn/!svn/ver/1505/trunk/cpp/core/src/zxing/Reader.h
 END
+FormatException.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/FormatException.cpp
+END
 BarcodeFormat.cpp
 K 25
 svn:wc:ra_dav:version-url
@@ -57,6 +63,12 @@ svn:wc:ra_dav:version-url
 V 65
 /svn/!svn/ver/1524/trunk/cpp/core/src/zxing/ResultPointCallback.h
 END
+FormatException.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/FormatException.h
+END
 BarcodeFormat.h
 K 25
 svn:wc:ra_dav:version-url
@@ -67,19 +79,19 @@ Result.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/svn/!svn/ver/1334/trunk/cpp/core/src/zxing/Result.cpp
-END
-ReaderException.cpp
-K 25
-svn:wc:ra_dav:version-url
-V 63
-/svn/!svn/ver/1092/trunk/cpp/core/src/zxing/ReaderException.cpp
+/svn/!svn/ver/1962/trunk/cpp/core/src/zxing/Result.cpp
 END
 BinaryBitmap.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 60
 /svn/!svn/ver/1489/trunk/cpp/core/src/zxing/BinaryBitmap.cpp
+END
+ReaderException.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/ReaderException.cpp
 END
 Result.h
 K 25
@@ -91,19 +103,19 @@ Binarizer.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 57
-/svn/!svn/ver/1480/trunk/cpp/core/src/zxing/Binarizer.cpp
+/svn/!svn/ver/1962/trunk/cpp/core/src/zxing/Binarizer.cpp
 END
 MultiFormatReader.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svn/!svn/ver/1510/trunk/cpp/core/src/zxing/MultiFormatReader.cpp
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/MultiFormatReader.cpp
 END
 ReaderException.h
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/!svn/ver/1506/trunk/cpp/core/src/zxing/ReaderException.h
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/ReaderException.h
 END
 BinaryBitmap.h
 K 25
@@ -121,7 +133,7 @@ DecodeHints.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 59
-/svn/!svn/ver/1524/trunk/cpp/core/src/zxing/DecodeHints.cpp
+/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/DecodeHints.cpp
 END
 Binarizer.h
 K 25
@@ -139,7 +151,7 @@ LuminanceSource.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 63
-/svn/!svn/ver/1556/trunk/cpp/core/src/zxing/LuminanceSource.cpp
+/svn/!svn/ver/1960/trunk/cpp/core/src/zxing/LuminanceSource.cpp
 END
 ResultPoint.h
 K 25

@@ -1,15 +1,15 @@
 10
 
 dir
-1948
+1979
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/datamatrix/detector
 http://zxing.googlecode.com/svn
 
 
 
-2010-05-12T22:11:18.046751Z
-1355
-luizcroc
+2011-10-12T18:11:40.727974Z
+1962
+smparkes@smparkes.net
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2011-04-21T13:08:36.000000Z
-9b0e96b3f0769e42a34a7ea53232630c
-2010-02-23T23:50:08.498613Z
-1217
-luizcroc
+2011-10-18T19:37:02.564337Z
+41dfff7f62888ac487a3d1efd5fded11
+2011-10-12T18:11:40.727974Z
+1962
+smparkes@smparkes.net
 
 
 
@@ -58,7 +58,7 @@ luizcroc
 
 
 
-2438
+2487
 
 CornerPoint.cpp
 file
@@ -168,11 +168,11 @@ file
 
 
 
-2011-04-21T13:08:36.000000Z
-2dd9efaf02b9b8cadb7f70c02437f5fc
-2010-05-07T17:10:06.636969Z
-1343
-dmaclach
+2011-10-18T19:37:02.564337Z
+f79a63336a57829543052e69ffe3e25e
+2011-10-12T18:11:40.727974Z
+1962
+smparkes@smparkes.net
 
 
 
@@ -194,7 +194,7 @@ dmaclach
 
 
 
-11595
+11668
 
 MonochromeRectangleDetector.h
 file
