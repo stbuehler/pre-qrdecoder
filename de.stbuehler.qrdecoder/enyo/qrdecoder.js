@@ -45,6 +45,20 @@ enyo.kind({
 			{kind: enyo.EditMenu},
 			{caption: "Copy result to clipboard", onclick: "copyToClipboard"}
 		]},
+		{
+			name: "launchCam",
+			kind: enyo.PalmService,
+			service: "palm://com.palm.applicationManager",
+			method: "launch",
+			onFailure: "launchCamFailure",
+			subscribe: true
+		},
+		{
+			name: "errorDialog",
+			kind: enyo.Dialog,
+			caption: "Error",
+			components: [ {kind: enyo.Control, content: "Couldn't launch Camera (needs WebOS 3.0.4)"} ],
+		},
 	],
 
 	create: function() {
@@ -55,7 +69,7 @@ enyo.kind({
 
 		var deviceinfo = JSON.parse(PalmSystem.deviceInfo);
 		if (deviceinfo.modelNameAscii == 'TouchPad') {
-			this.$.takepicture.hide();
+			// this.$.takepicture.hide();
 		}
 		this.useImage(QRDecoder.imgFilename);
 		enyo.keyboard.setManualMode(true);
@@ -77,6 +91,18 @@ enyo.kind({
 		this.$.img.setSrc("file://" + filename + "?" + (new Date()).getTime()); /* force refresh with ?... */
 		this.$.img.show();
 		this.currentFilename = filename;
+	},
+
+	launchCamFailure: function() {
+		this.$.errorDialog.openAtCenter();
+	},
+	launchCam: function() {
+		// TODO: not working yet
+		this.$.launchCam.call({
+			id: 'com.palm.app.camera',
+			name: 'capture',
+			params: { scene: 'capture', sublaunch: true, mode: 'still', filename: QRDecoder.imgFilename }
+		});
 	},
 
 	captureDeviceList: function(bag) {
@@ -180,6 +206,7 @@ enyo.kind({
 		this.$.chooseImage.pickFile();
 	},
 	onClickShoot: function() {
+		this.launchCam();
 	},
 	onClickDecode: function() {
 		this.decodeImage();
