@@ -14,7 +14,7 @@ function highlight(text, barcodeformat) {
 	default:
 		break;
 	}
-	if (enyo && enyo.string && enyo.string.runTextIndexer) {
+	if ((typeof enyo != "undefined") && enyo.string && enyo.string.runTextIndexer) {
 		text = enyo.string.runTextIndexer(text);
 	} else {
 		text = text.replace(new RegExp('(https?://|mailto:)\\S*?\.?($|\\s)', 'ig'), function(value) { return '<a href="'+value+'">'+value+'</a>' });
