@@ -6,6 +6,6 @@ ifeq ($(TARGET),device)
 
 # arm-2009q1 toolchain (and older) need a workaround for fmaxl / fminl
 #    see http://sourceware.org/bugzilla/show_bug.cgi?id=10103
-CPPFLAGS += -Dfmaxl=fmax -Dfminl=fmin
-TOOLCHAIN=/opt/toolchain/arm-2009q1/bin/arm-none-linux-gnueabi-
+# CPPFLAGS += -Dfmaxl=fmax -Dfminl=fmin
+# TOOLCHAIN=/opt/toolchain/arm-2009q1/bin/arm-none-linux-gnueabi-
 endif

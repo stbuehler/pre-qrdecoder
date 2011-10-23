@@ -15,10 +15,7 @@ Building:
   needs GNU make!
 
 
-Although the PDK is only available for Windows, you can just copy the PDK directory to /opt/PalmPDK
-and use the headers and libraries to link for the device (host mode obviously not supported).
-
-If you copy the libs from the emulator make TARGET=emu works too (jail on emu has a small bug, you need to setup a /dev/fb -> fb0 link manually).
+emulator works too with TARGET=emulator (jail on emulator has a small bug, you need to setup a /dev/fb -> fb0 link manually).
 Also g++ 4.6 didn't work well with exceptions, using CXX=g++-4.4 fixed the issues.
 
 You can build a test command line interface for your host:

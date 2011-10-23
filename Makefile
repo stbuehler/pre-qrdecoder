@@ -7,8 +7,8 @@ LDFLAGS=$(MISCFLAGS) $(DEVICEOPTS) -Wl,--allow-shlib-undefined -L$(PALMPDK)/$(TA
 
 MISCFLAGS=-O2 -g
 
-LIBS_PLUGIN=-lSDL -lpdl -lm -lSDL_image
-LIBS_CLI=-lSDL_image -lm
+LIBS_PLUGIN=-lSDL -lpdl -lm -lSDL -lSDL_image
+LIBS_CLI=-lSDL -lSDL_image -lm
 
 TARGET = device
 
@@ -21,11 +21,11 @@ DEVICEOPTS ?=
 TOOLCHAIN ?=
 BUILD ?= build-host
 
-else ifeq ($(TARGET),emu)
+else ifeq ($(TARGET),emulator)
 PALMPDK ?= /opt/PalmPDK
 DEVICEOPTS ?= -m32 -march=i686
 TOOLCHAIN ?=
-BUILD ?= build-emu
+BUILD ?= build-emulator
 # gles not available
 LIBS_PLUGIN=-lSDL -lpdl -lm -lSDL_image
 
@@ -35,7 +35,11 @@ PALMPDK ?= /opt/PalmPDK
 DEVICEOPTS ?= -mcpu=arm1136jf-s -mfpu=vfp -mfloat-abi=softfp
 # Pre only
 # DEVICEOPTS ?= -mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-TOOLCHAIN ?= arm-none-linux-gnueabi-
+
+TOOLCHAIN ?= /opt/PalmPDK/arm-gcc/bin/arm-none-linux-gnueabi-
+# arm-2009q1 toolchain (and older) need a workaround for fmaxl / fminl
+#    see http://sourceware.org/bugzilla/show_bug.cgi?id=10103
+CPPFLAGS += -Dfmaxl=fmax -Dfminl=fmin
 
 BUILD ?= build
 endif
@@ -51,22 +55,22 @@ endif
 DIRS := $(BUILD) $(patsubst %,$(BUILD)/zxing/%,common common/reedsolomon qrcode qrcode/detector qrcode/decoder oned datamatrix datamatrix/detector datamatrix/decoder)
 
 SOURCES := $(shell find src/zxing -name '*.cpp') src/SDLImageSource.cpp
-OBJS := $(patsubst src/%.cpp,$(BUILD)/%.o,$(SOURCES))
-ALLOBJS := $(OBJS) $(BUILD)/qrdecode.o $(BUILD)/qrdecode-test.o
+LIB_OBJS := $(patsubst src/%.cpp,$(BUILD)/%.o,$(SOURCES))
+CPPOBJS := $(LIB_OBJS) $(BUILD)/qrdecode.o $(BUILD)/qrdecode-test.o $(BUILD)/qrencode-test.o
 
 all: package
 
 $(DIRS):
 	mkdir -p $@
 
-$(ALLOBJS): $(BUILD)/%.o: src/%.cpp | $(DIRS)
+$(CPPOBJS): $(BUILD)/%.o: src/%.cpp | $(DIRS)
 	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $< -o $@
 
-$(BUILD)/qrdecode-test: $(OBJS) $(BUILD)/qrdecode-test.o
-	$(CXX) $(LDFLAGS) $(LIBS_CLI) $^ -o $@
+$(BUILD)/qrdecode-test: $(LIB_OBJS) $(BUILD)/qrdecode-test.o
+	$(CXX) $^ $(LDFLAGS) $(LIBS_CLI) -o $@
 
-$(BUILD)/qrdecode_plugin-dbg: $(OBJS) $(BUILD)/qrdecode.o
-	$(CXX) $(LDFLAGS) $(LIBS_PLUGIN) $^ -o $@
+$(BUILD)/qrdecode_plugin-dbg: $(LIB_OBJS) $(BUILD)/qrdecode.o
+	$(CXX) $^ $(LDFLAGS) $(LIBS_PLUGIN) -o $@
 
 $(BUILD)/qrdecode_plugin: $(BUILD)/qrdecode_plugin-dbg
 	$(STRIP) --strip-unneeded -o $@ $<
