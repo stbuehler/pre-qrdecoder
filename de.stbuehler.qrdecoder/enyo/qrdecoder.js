@@ -117,29 +117,51 @@ enyo.kind({
 		return devices;
 	},
 
+	getVideoSources: function(devices) {
+		var list = [], i, j, d, f, f1;
+		for (i = 0; i < devices.length; i++) {
+			d = devices[i];
+			if (d.supportedImageFormats) {
+				f = false;
+				/* found image/video device */
+				for (j = 0; j < d.supportedImageFormats.length; j++) {
+					f1 = d.supportedImageFormats[j];
+					if (f1.mimetype == "image/jpeg" && (!f || f1.samplerate > f.samplerate)) f = f1;
+				}
+				list.push({ deviceUri: d.deviceUri, format: f, description: d.description, device: d });
+			}
+		}
+		return list;
+	},
+
+	selectCamera: function(sources) {
+		/* prefer the rear camera */
+		var sel = 0, i;
+		for (i = 0; i < sources.length; i++) {
+			if (sources[i].description == "Camera/Camcorder") {
+				sel = i;
+			} else if (sel == i &&
+					((sources[i].description == "User facing camera") || (sources[i].description = "Front Camera"))) {
+				/* try to not use this one */
+				if (sources.length > sel+1) sel = sel+1;
+			}
+		}
+		return sources[sel];
+	},
+
 	onCapInitialized: function(sender, result) {
 		try {
 			var devices = this.captureDeviceList(result);
 
 			enyo.log("devices: ", enyo.json.stringify(devices));
 
-			/* find first video device */
-			var i, d, f, f1;
-			for (i = 0; i < devices.length; i++) {
-				d = devices[i];
-				if (d.supportedImageFormats) {
-					/* found image/video device */
-					enyo.log("Using image device: " + d.deviceUri);
-					
-					for (i = 0; i < d.supportedImageFormats.length; i++) {
-						f1 = d.supportedImageFormats[i];
-						if (f1.mimetype == "image/jpeg" && (!f || f1.samplerate > f.samplerate)) f = f1;
-					}
-					this.captureDevice = { uri: d.deviceUri, format: f };
-					this.$.capture.load(d.deviceUri, f);
-					return;
-				}
-			}
+			/* video devices with best samplerate selected */
+			var sources = this.getVideoSources(devices);
+
+			this.captureDevice = this.selectCamera(sources);
+			enyo.log("selected video source: ", enyo.json.stringify(this.captureDevice));
+
+			this.$.capture.load(this.captureDevice.deviceUri, this.captureDevice.format);
 		} catch (e) {
 			enyo.error("error: ", e);
 		}

@@ -12,31 +12,21 @@ var LiveAssistant = Class.create({
 		this.video = document.createElement("video");
 
 		var deviceinfo = JSON.parse(PalmSystem.deviceInfo);
-		
+
 		this.video.setAttribute("width", deviceinfo.screenWidth);
 		this.video.setAttribute("height", deviceinfo.screenHeight);
 		this.video.setAttribute("showControls", false);
 
 		$('live-content').appendChild(this.video);
 
-		this.mediaCaptureObj = libraries.mediacapture.MediaCapture({video:this.video});
+		this.mediaCaptureObj = libraries.mediacapture.MediaCapture({video: this.video});
 
-		var i, typeIdx, fmt, dev; 
-		for (i=0; this.mediaCaptureObj.supportedImageFormats.length != i; ++i){
-			fmt = this.mediaCaptureObj.supportedImageFormats[i];
-			if (fmt.mimetype == "image/jpeg"){
-				break;
-			}
-		}
-		for (var i=0; i != this.mediaCaptureObj.captureDevices.length; ++i) {
-			dev = this.mediaCaptureObj.captureDevices[i];
-			for (typeIdx = 0; typeIdx != dev.inputtype.length; ++typeIdx) {
-				if (dev.inputtype[typeIdx] == this.mediaCaptureObj.INPUT_TYPE_IMAGE) {
-					break;
-				}
-			}
-		}
-		this.mediaCaptureObj.load(dev.deviceUri, {"imageCaptureFormat":fmt});
+		Mojo.Log.info("available capture devices: ", JSON.stringify(this.mediaCaptureObj.captureDevices));
+
+		var sources = this.getVideoSources(this.mediaCaptureObj);
+		this.captureDevice = this.selectCamera(sources);
+
+		this.mediaCaptureObj.load(this.captureDevice.deviceUri, {imageCaptureFormat: this.captureDevice.format});
 		this.mediaCaptureObj.addEventListener("imagecapturecomplete", this.pictureTaken, false);
 
 		/* setup widgets here */
@@ -44,6 +34,42 @@ var LiveAssistant = Class.create({
 		this.live_running = false;
 
 		/* add event handlers to listen to events from widgets */
+	},
+
+	getVideoSources: function(mediaCaptureObj) {
+		var list = [], i, d, f = false, f1;
+
+		for (i = 0; i < mediaCaptureObj.supportedImageFormats.length; i++) {
+			f1 = mediaCaptureObj.supportedImageFormats[i];
+			if (f1.mimetype == "image/jpeg" && (!f || f1.samplerate > f.samplerate)) f = f1;
+		}
+
+		for (i = 0; i < mediaCaptureObj.captureDevices.length; i++) {
+			d = mediaCaptureObj.captureDevices[i];
+			for (typeIdx = 0; typeIdx != d.inputtype.length; ++typeIdx) {
+				if (d.inputtype[typeIdx] == this.mediaCaptureObj.INPUT_TYPE_IMAGE) {
+					/* found image/video device */
+					list.push({ deviceUri: d.deviceUri, format: f, description: d.description, device: d });
+					break;
+				}
+			}
+		}
+		return list;
+	},
+
+	selectCamera: function(sources) {
+		/* prefer the rear camera */
+		var sel = 0, i;
+		for (i = 0; i < sources.length; i++) {
+			if (sources[i].description == "Camera/Camcorder") {
+				sel = i;
+			} else if (sel == i &&
+					((sources[i].description == "User facing camera") || (sources[i].description = "Front Camera"))) {
+				/* try to not use this one */
+				if (sources.length > sel+1) sel = sel+1;
+			}
+		}
+		return sources[sel];
 	},
 
 	pictureTaken: function(event) {
