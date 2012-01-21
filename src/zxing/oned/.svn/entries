@@ -1,14 +1,14 @@
 10
 
 dir
-1979
+2128
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/oned
 http://zxing.googlecode.com/svn
 
 
 
-2011-10-13T15:21:13.400743Z
-1966
+2011-11-29T19:58:18.962095Z
+2056
 smparkes@smparkes.net
 
 
@@ -25,40 +25,6 @@ smparkes@smparkes.net
 
 
 59b500cc-1b3d-0410-9834-0bbf25fbcc57
-
-OneDResultPoint.cpp
-file
-
-
-
-
-2011-04-21T13:08:34.000000Z
-aa70319e85dbb00ba46eb1c038bd571e
-2010-08-13T16:20:03.411206Z
-1527
-dswitkin@google.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-946
 
 UPCEANReader.cpp
 file
@@ -93,6 +59,40 @@ rpechayr
 
 
 10063
+
+OneDResultPoint.cpp
+file
+
+
+
+
+2012-01-21T11:36:40.978804Z
+b775361a6288337c05ddd2e0b5fa0223
+2011-10-20T19:11:33.294477Z
+1986
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+820
 
 EAN13Reader.h
 file
@@ -162,51 +162,17 @@ dswitkin@google.com
 
 1072
 
-OneDResultPoint.h
-file
-
-
-
-
-2011-04-21T13:08:34.000000Z
-374fff88cb4dc11689215015d48c4dbb
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1019
-
 UPCEANReader.h
 file
 
 
 
 
-2011-04-21T13:08:34.000000Z
-0922c9d3e897aaa359f647cd2e9996e7
-2011-03-29T11:40:25.562716Z
-1730
-rpechayr
+2012-01-21T11:36:40.982804Z
+30e6205985f176959a5862de2d547dcc
+2011-11-29T19:58:18.962095Z
+2056
+smparkes@smparkes.net
 
 
 
@@ -228,7 +194,41 @@ rpechayr
 
 
 
-2692
+2532
+
+OneDResultPoint.h
+file
+
+
+
+
+2012-01-21T11:36:40.982804Z
+211313149f4e2fd1b50f099506ac0a9b
+2011-10-20T19:11:33.294477Z
+1986
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+930
 
 ITFReader.cpp
 file
@@ -236,10 +236,10 @@ file
 
 
 
-2011-10-18T19:36:58.528317Z
-468cd6ee22704ba34c44e67e105bc6b3
-2011-10-13T15:21:13.400743Z
-1966
+2012-01-21T11:36:40.982804Z
+5aa2e8cc724f2b06cdda70f4a5eacb41
+2011-11-29T19:58:18.962095Z
+2056
 smparkes@smparkes.net
 
 
@@ -262,7 +262,7 @@ smparkes@smparkes.net
 
 
 
-12772
+12857
 
 OneDReader.cpp
 file
@@ -270,10 +270,10 @@ file
 
 
 
-2011-10-18T19:36:58.532317Z
-d9d773b8dcf6e17f5893729ff8dc625c
-2011-10-13T15:21:13.400743Z
-1966
+2012-01-21T11:36:40.982804Z
+e2bbc8731d4f444e62cb92a824ef689d
+2011-10-28T18:31:35.538794Z
+1995
 smparkes@smparkes.net
 
 
@@ -296,7 +296,7 @@ smparkes@smparkes.net
 
 
 
-7989
+7990
 
 Code39Reader.cpp
 file
@@ -304,11 +304,11 @@ file
 
 
 
-2011-04-21T13:08:34.206962Z
-b900ad5317697a2ccfc13bec0b8518c1
-2010-08-13T19:47:13.870563Z
-1531
-dswitkin@google.com
+2012-01-21T11:36:40.982804Z
+dc11610c65ef2eddcb2df2037ed51769
+2011-11-29T18:50:25.887077Z
+2054
+smparkes@smparkes.net
 
 
 
@@ -330,7 +330,7 @@ dswitkin@google.com
 
 
 
-11569
+11537
 
 ITFReader.h
 file
@@ -338,11 +338,11 @@ file
 
 
 
-2011-04-21T13:08:34.000000Z
-8c29fed0d12adbef26be5498d9b3c75a
-2010-12-22T17:31:16.107270Z
-1689
-rpechayr
+2012-01-21T11:36:40.982804Z
+c3d30f5e1ce922d79042ffb44ebe3a19
+2011-11-29T19:58:18.962095Z
+2056
+smparkes@smparkes.net
 
 
 
@@ -364,7 +364,7 @@ rpechayr
 
 
 
-2287
+2130
 
 UPCAReader.cpp
 file
@@ -434,40 +434,6 @@ dswitkin@google.com
 
 1616
 
-EAN8Reader.cpp
-file
-
-
-
-
-2011-04-21T13:08:34.000000Z
-fe8d718c658a10d4d37929f3b78bbca0
-2010-08-25T20:51:14.402307Z
-1563
-dswitkin@google.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2269
-
 Code39Reader.h
 file
 
@@ -502,17 +468,51 @@ flyashi
 
 1750
 
+EAN8Reader.cpp
+file
+
+
+
+
+2012-01-21T11:36:40.982804Z
+3f0e659e673e35ce19d609153538b135
+2011-11-29T19:58:18.962095Z
+2056
+smparkes@smparkes.net
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2339
+
 UPCEReader.cpp
 file
 
 
 
 
-2011-04-21T13:08:34.000000Z
-42079155f865e897e7cb8968f2dce0de
-2010-08-25T20:51:14.402307Z
-1563
-dswitkin@google.com
+2012-01-21T11:36:40.982804Z
+84ad930f89c716fe0579e21a14a35add
+2011-11-29T19:58:18.962095Z
+2056
+smparkes@smparkes.net
 
 
 
@@ -534,7 +534,7 @@ dswitkin@google.com
 
 
 
-4449
+4519
 
 UPCAReader.h
 file
@@ -644,11 +644,11 @@ file
 
 
 
-2011-04-21T13:08:34.000000Z
-4972ace043688922c92f9af26dd6977f
-2010-08-25T20:51:14.402307Z
-1563
-dswitkin@google.com
+2012-01-21T11:36:40.986804Z
+e8bcb99620fb3d6974626639f4331166
+2011-11-29T19:58:18.962095Z
+2056
+smparkes@smparkes.net
 
 
 
@@ -670,7 +670,7 @@ dswitkin@google.com
 
 
 
-1387
+1357
 
 MultiFormatUPCEANReader.h
 file
@@ -712,10 +712,10 @@ file
 
 
 
-2011-10-18T19:36:58.532317Z
-eb015bca99ef4dd79c7102759ad90c01
-2011-10-13T15:21:13.400743Z
-1966
+2012-01-21T11:36:40.986804Z
+b7463f1f7fbe5f858dc6edc3fd0276e6
+2011-11-29T19:18:53.863419Z
+2055
 smparkes@smparkes.net
 
 
@@ -738,7 +738,7 @@ smparkes@smparkes.net
 
 
 
-15120
+15223
 
 EAN13Reader.cpp
 file
@@ -746,11 +746,11 @@ file
 
 
 
-2011-04-21T13:08:34.000000Z
-b8d595654410f48f38c4d5d6b47ae922
-2010-08-25T20:51:14.402307Z
-1563
-dswitkin@google.com
+2012-01-21T11:36:40.986804Z
+b33bc69e48811688cf53e84e4dbef72f
+2011-11-29T19:58:18.962095Z
+2056
+smparkes@smparkes.net
 
 
 
@@ -772,7 +772,7 @@ dswitkin@google.com
 
 
 
-2926
+2995
 
 MultiFormatOneDReader.cpp
 file
@@ -814,11 +814,11 @@ file
 
 
 
-2011-04-21T13:08:34.000000Z
-51bccf24de5d17c33ad50120fd32aad9
-2010-12-22T17:31:16.107270Z
-1689
-rpechayr
+2012-01-21T11:36:40.986804Z
+8eaea2cf037e76a8dd3acf2ebe9907ad
+2011-11-29T19:58:18.962095Z
+2056
+smparkes@smparkes.net
 
 
 
@@ -840,5 +840,5 @@ rpechayr
 
 
 
-2126
+1965
 

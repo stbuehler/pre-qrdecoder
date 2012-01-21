@@ -1,15 +1,15 @@
 10
 
 dir
-1979
+2128
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/datamatrix/decoder
 http://zxing.googlecode.com/svn
 
 
 
-2011-10-13T15:21:13.400743Z
-1966
-smparkes@smparkes.net
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2011-10-18T19:37:02.548337Z
-0f6f58096bbc803c8e11810e6fea8a54
-2011-10-11T19:39:56.903683Z
-1956
-smparkes@smparkes.net
+2012-01-21T11:36:41.206806Z
+5dd559ec6e005d1e924f6236874e443a
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -58,7 +58,7 @@ smparkes@smparkes.net
 
 
 
-13551
+13898
 
 BitMatrixParser.cpp
 file
@@ -66,11 +66,11 @@ file
 
 
 
-2011-04-21T13:08:36.000000Z
-cfe85361cf003c88502c601b0c121390
-2010-05-07T17:10:06.636969Z
-1343
-dmaclach
+2012-01-21T11:36:41.206806Z
+fff79665d00ccab72ef13566387816b6
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -92,7 +92,7 @@ dmaclach
 
 
 
-12107
+11892
 
 DecodedBitStreamParser.h
 file
@@ -100,11 +100,11 @@ file
 
 
 
-2011-04-21T13:08:36.000000Z
-6acd2ecf40b63c64f9f517ada4c1f420
-2010-02-23T23:50:08.498613Z
-1217
-luizcroc
+2012-01-21T11:36:41.206806Z
+d0fa7ec37ad097d64d8ba0633e5a2e48
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -126,7 +126,7 @@ luizcroc
 
 
 
-3403
+3447
 
 DataBlock.cpp
 file
@@ -202,11 +202,11 @@ file
 
 
 
-2011-10-18T19:37:02.548337Z
-2993dc499029b9d0c3c64767c1215cfb
-2011-10-13T15:21:13.400743Z
-1966
-smparkes@smparkes.net
+2012-01-21T11:36:41.206806Z
+3f7a15bc8bdd1cb93d0b0d63d2da80c5
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -228,7 +228,7 @@ smparkes@smparkes.net
 
 
 
-3196
+3254
 
 DataBlock.h
 file

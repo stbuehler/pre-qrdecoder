@@ -32,6 +32,9 @@ namespace zxing {
 		private:
 			Decoder decoder_;
 			
+    protected:
+      Decoder& getDecoder();
+
 		public:
 			QRCodeReader();
 			virtual Ref<Result> decode(Ref<BinaryBitmap> image, DecodeHints hints);

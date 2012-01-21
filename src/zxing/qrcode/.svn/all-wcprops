@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/qrcode
+/svn/!svn/ver/2087/trunk/cpp/core/src/zxing/qrcode
 END
 FormatInformation.cpp
 K 25
@@ -19,7 +19,7 @@ QRCodeReader.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 67
-/svn/!svn/ver/1964/trunk/cpp/core/src/zxing/qrcode/QRCodeReader.cpp
+/svn/!svn/ver/2087/trunk/cpp/core/src/zxing/qrcode/QRCodeReader.cpp
 END
 FormatInformation.h
 K 25
@@ -31,7 +31,7 @@ QRCodeReader.h
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svn/!svn/ver/1964/trunk/cpp/core/src/zxing/qrcode/QRCodeReader.h
+/svn/!svn/ver/1986/trunk/cpp/core/src/zxing/qrcode/QRCodeReader.h
 END
 Version.cpp
 K 25

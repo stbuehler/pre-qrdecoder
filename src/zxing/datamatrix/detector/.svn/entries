@@ -1,15 +1,15 @@
 10
 
 dir
-1979
+2128
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/datamatrix/detector
 http://zxing.googlecode.com/svn
 
 
 
-2011-10-12T18:11:40.727974Z
-1962
-smparkes@smparkes.net
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -32,10 +32,44 @@ file
 
 
 
-2011-10-18T19:37:02.564337Z
-41dfff7f62888ac487a3d1efd5fded11
-2011-10-12T18:11:40.727974Z
-1962
+2012-01-21T11:36:41.242806Z
+0c7d482f98f876579972f250eefc78ff
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3047
+
+CornerPoint.cpp
+file
+
+
+
+
+2012-01-21T11:36:41.242806Z
+ecdcdf0429c6b6a3d61605ac227bb5df
+2011-10-20T19:11:33.294477Z
+1986
 smparkes@smparkes.net
 
 
@@ -58,41 +92,7 @@ smparkes@smparkes.net
 
 
 
-2487
-
-CornerPoint.cpp
-file
-
-
-
-
-2011-04-21T13:08:36.000000Z
-710dc647b431d166cd8aa66f1fcf572a
-2010-05-04T21:44:53.303733Z
-1334
-dmaclach
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1302
+1180
 
 MonochromeRectangleDetector.cpp
 file
@@ -134,44 +134,10 @@ file
 
 
 
-2011-04-21T13:08:36.000000Z
-93690318be8a9f799b5dd31c9a7e6ccd
-2010-05-04T21:44:53.303733Z
-1334
-dmaclach
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1186
-
-Detector.cpp
-file
-
-
-
-
-2011-10-18T19:37:02.564337Z
-f79a63336a57829543052e69ffe3e25e
-2011-10-12T18:11:40.727974Z
-1962
+2012-01-21T11:36:41.242806Z
+5de041d65bd99d94fe95d092b059ced0
+2011-10-20T19:11:33.294477Z
+1986
 smparkes@smparkes.net
 
 
@@ -194,7 +160,75 @@ smparkes@smparkes.net
 
 
 
-11668
+1108
+
+DetectorException.cpp
+file
+
+
+
+
+2012-01-21T11:36:41.242806Z
+afd0447eac1f8e73338b843b8113067e
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+385
+
+Detector.cpp
+file
+
+
+
+
+2012-01-21T11:36:41.242806Z
+0d3f580808ba5fa7af51e3786ed67436
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14850
 
 MonochromeRectangleDetector.h
 file
@@ -229,4 +263,38 @@ luizcroc
 
 
 1760
+
+DetectorException.h
+file
+
+
+
+
+2012-01-21T11:36:41.242806Z
+b74399df7f7a196853295db80ab5ed18
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+462
 

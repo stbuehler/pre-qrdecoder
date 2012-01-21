@@ -1,14 +1,14 @@
 10
 
 dir
-1979
+2128
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/qrcode
 http://zxing.googlecode.com/svn
 
 
 
-2011-10-13T15:21:13.400743Z
-1966
+2011-12-13T22:34:53.297679Z
+2087
 smparkes@smparkes.net
 
 
@@ -100,10 +100,10 @@ file
 
 
 
-2011-10-18T19:37:02.792338Z
-bf4ab9b5a48d558dcad7fa8576ba2d10
-2011-10-13T15:20:25.868545Z
-1964
+2012-01-21T11:36:41.346806Z
+ffb1981e6625f8b8110578dda6985a7d
+2011-12-13T22:34:53.297679Z
+2087
 smparkes@smparkes.net
 
 
@@ -126,7 +126,7 @@ smparkes@smparkes.net
 
 
 
-2492
+2563
 
 FormatInformation.h
 file
@@ -171,10 +171,10 @@ file
 
 
 
-2011-10-18T19:37:02.792338Z
-a2366fb3380c8d11ae8b260e9cc67606
-2011-10-13T15:20:25.868545Z
-1964
+2012-01-21T11:36:41.350806Z
+a393809541a7c198f08a21855c293d01
+2011-10-20T19:11:33.294477Z
+1986
 smparkes@smparkes.net
 
 
@@ -197,7 +197,7 @@ smparkes@smparkes.net
 
 
 
-1179
+1224
 
 Version.cpp
 file

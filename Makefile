@@ -52,7 +52,7 @@ endif
 
 # end of custom vars
 
-DIRS := $(BUILD) $(patsubst %,$(BUILD)/zxing/%,common common/reedsolomon qrcode qrcode/detector qrcode/decoder oned datamatrix datamatrix/detector datamatrix/decoder)
+DIRS := $(BUILD) $(patsubst %,$(BUILD)/zxing/%,common common/detector common/reedsolomon qrcode qrcode/detector qrcode/decoder oned datamatrix datamatrix/detector datamatrix/decoder multi multi/qrcode multi/qrcode/detector)
 
 SOURCES := $(shell find src/zxing -name '*.cpp') src/SDLImageSource.cpp
 LIB_OBJS := $(patsubst src/%.cpp,$(BUILD)/%.o,$(SOURCES))

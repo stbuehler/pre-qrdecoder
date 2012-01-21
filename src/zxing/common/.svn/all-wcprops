@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/!svn/ver/1974/trunk/cpp/core/src/zxing/common
+/svn/!svn/ver/2083/trunk/cpp/core/src/zxing/common
 END
 Point.h
 K 25
@@ -13,7 +13,7 @@ BitSource.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/!svn/ver/1092/trunk/cpp/core/src/zxing/common/BitSource.cpp
+/svn/!svn/ver/1992/trunk/cpp/core/src/zxing/common/BitSource.cpp
 END
 GreyscaleLuminanceSource.h
 K 25
@@ -67,7 +67,7 @@ GridSampler.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/svn/!svn/ver/1271/trunk/cpp/core/src/zxing/common/GridSampler.cpp
+/svn/!svn/ver/1992/trunk/cpp/core/src/zxing/common/GridSampler.cpp
 END
 Str.h
 K 25
@@ -91,13 +91,13 @@ BitArray.h
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/!svn/ver/1974/trunk/cpp/core/src/zxing/common/BitArray.h
+/svn/!svn/ver/2083/trunk/cpp/core/src/zxing/common/BitArray.h
 END
 GlobalHistogramBinarizer.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/common/GlobalHistogramBinarizer.cpp
+/svn/!svn/ver/2082/trunk/cpp/core/src/zxing/common/GlobalHistogramBinarizer.cpp
 END
 PerspectiveTransform.cpp
 K 25
@@ -109,13 +109,7 @@ HybridBinarizer.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/svn/!svn/ver/1974/trunk/cpp/core/src/zxing/common/HybridBinarizer.cpp
-END
-GreyscaleLuminanceSource.cpp
-K 25
-svn:wc:ra_dav:version-url
-V 79
-/svn/!svn/ver/1536/trunk/cpp/core/src/zxing/common/GreyscaleLuminanceSource.cpp
+/svn/!svn/ver/2082/trunk/cpp/core/src/zxing/common/HybridBinarizer.cpp
 END
 IllegalArgumentException.cpp
 K 25
@@ -123,17 +117,17 @@ svn:wc:ra_dav:version-url
 V 79
 /svn/!svn/ver/1092/trunk/cpp/core/src/zxing/common/IllegalArgumentException.cpp
 END
+GreyscaleLuminanceSource.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/1536/trunk/cpp/core/src/zxing/common/GreyscaleLuminanceSource.cpp
+END
 StringUtils.h
 K 25
 svn:wc:ra_dav:version-url
 V 64
 /svn/!svn/ver/1966/trunk/cpp/core/src/zxing/common/StringUtils.h
-END
-EdgeDetector.cpp
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/svn/!svn/ver/1271/trunk/cpp/core/src/zxing/common/EdgeDetector.cpp
 END
 CharacterSetECI.h
 K 25
@@ -141,23 +135,23 @@ svn:wc:ra_dav:version-url
 V 68
 /svn/!svn/ver/1966/trunk/cpp/core/src/zxing/common/CharacterSetECI.h
 END
+EdgeDetector.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1271/trunk/cpp/core/src/zxing/common/EdgeDetector.cpp
+END
 ECI.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/common/ECI.cpp
+/svn/!svn/ver/2054/trunk/cpp/core/src/zxing/common/ECI.cpp
 END
 BitMatrix.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/!svn/ver/1974/trunk/cpp/core/src/zxing/common/BitMatrix.cpp
-END
-BitSource.h
-K 25
-svn:wc:ra_dav:version-url
-V 62
-/svn/!svn/ver/1506/trunk/cpp/core/src/zxing/common/BitSource.h
+/svn/!svn/ver/2083/trunk/cpp/core/src/zxing/common/BitMatrix.cpp
 END
 DecoderResult.cpp
 K 25
@@ -165,11 +159,17 @@ svn:wc:ra_dav:version-url
 V 68
 /svn/!svn/ver/1966/trunk/cpp/core/src/zxing/common/DecoderResult.cpp
 END
+BitSource.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/1992/trunk/cpp/core/src/zxing/common/BitSource.h
+END
 Counted.h
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/svn/!svn/ver/1974/trunk/cpp/core/src/zxing/common/Counted.h
+/svn/!svn/ver/2054/trunk/cpp/core/src/zxing/common/Counted.h
 END
 Str.cpp
 K 25
@@ -177,29 +177,29 @@ svn:wc:ra_dav:version-url
 V 58
 /svn/!svn/ver/1334/trunk/cpp/core/src/zxing/common/Str.cpp
 END
+BitArray.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2083/trunk/cpp/core/src/zxing/common/BitArray.cpp
+END
 DetectorResult.h
 K 25
 svn:wc:ra_dav:version-url
 V 67
 /svn/!svn/ver/1506/trunk/cpp/core/src/zxing/common/DetectorResult.h
 END
-BitArray.cpp
-K 25
-svn:wc:ra_dav:version-url
-V 63
-/svn/!svn/ver/1974/trunk/cpp/core/src/zxing/common/BitArray.cpp
-END
 GridSampler.h
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/!svn/ver/1506/trunk/cpp/core/src/zxing/common/GridSampler.h
+/svn/!svn/ver/1992/trunk/cpp/core/src/zxing/common/GridSampler.h
 END
 Array.h
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/common/Array.h
+/svn/!svn/ver/1982/trunk/cpp/core/src/zxing/common/Array.h
 END
 GreyscaleRotatedLuminanceSource.h
 K 25
@@ -223,7 +223,7 @@ CharacterSetECI.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/common/CharacterSetECI.cpp
+/svn/!svn/ver/2054/trunk/cpp/core/src/zxing/common/CharacterSetECI.cpp
 END
 PerspectiveTransform.h
 K 25

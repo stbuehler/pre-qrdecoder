@@ -118,7 +118,6 @@ using namespace zxing;
 zxing::Ref<zxing::Result> qrDecode(zxing::Ref<zxing::LuminanceSource> source) {
 	zxing::DecodeHints hints(zxing::DecodeHints::DEFAULT_HINT);
 	hints.setTryHarder(true);
-	hints.addFormat(zxing::BarcodeFormat_DATA_MATRIX);
 
 //	zxing::Ref<zxing::Reader> reader(new zxing::qrcode::QRCodeReader());
 	zxing::Ref<zxing::Reader> reader(new zxing::MultiFormatReader());

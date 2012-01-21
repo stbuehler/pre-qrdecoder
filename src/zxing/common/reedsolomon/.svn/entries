@@ -1,15 +1,15 @@
 10
 
 dir
-1979
+2128
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/common/reedsolomon
 http://zxing.googlecode.com/svn
 
 
 
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2011-12-12T22:38:50.488915Z
+2082
+smparkes@smparkes.net
 
 
 
@@ -66,11 +66,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-d3a4e24aa292c967d92fa55a94ae0ff7
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2012-01-21T11:36:41.098805Z
+4c45d1d058b97c697b2e89e87efa8ac9
+2011-12-12T22:38:50.488915Z
+2082
+smparkes@smparkes.net
 
 
 
@@ -92,7 +92,7 @@ flyashi
 
 
 
-1362
+1379
 
 GF256Poly.h
 file
@@ -236,11 +236,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-715294c405142e4fe506dc3f6a9418e0
-2009-11-01T17:30:30.307166Z
-1092
-ralf.kistner@gmail.com
+2012-01-21T11:36:41.098805Z
+9472de8222e266f7cb951d68584adbb7
+2011-12-12T22:38:50.488915Z
+2082
+smparkes@smparkes.net
 
 
 
@@ -262,7 +262,7 @@ ralf.kistner@gmail.com
 
 
 
-6137
+6328
 
 GF256Poly.cpp
 file

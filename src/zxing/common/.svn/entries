@@ -1,14 +1,14 @@
 10
 
 dir
-1979
+2128
 http://zxing.googlecode.com/svn/trunk/cpp/core/src/zxing/common
 http://zxing.googlecode.com/svn
 
 
 
-2011-10-15T00:58:10.434042Z
-1974
+2011-12-12T22:54:51.405281Z
+2083
 smparkes@smparkes.net
 
 
@@ -66,11 +66,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-a72d7e217e532d592fc73eead5f0e9c8
-2009-11-01T17:30:30.307166Z
-1092
-ralf.kistner@gmail.com
+2012-01-21T11:36:41.154805Z
+62bb773ce07be9064b367179f8e6023e
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -92,7 +92,7 @@ ralf.kistner@gmail.com
 
 
 
-2115
+2114
 
 GreyscaleLuminanceSource.h
 file
@@ -372,11 +372,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-a5f53c0cf26588af60d56fad811f69cd
-2010-04-02T14:11:53.276985Z
-1271
-ralf.kistner@gmail.com
+2012-01-21T11:36:41.154805Z
+a941dcc87dcff116a0e3c78ec9398fe8
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -398,7 +398,7 @@ ralf.kistner@gmail.com
 
 
 
-3443
+4165
 
 Str.h
 file
@@ -508,10 +508,10 @@ file
 
 
 
-2011-10-18T19:37:00.440326Z
-001b878d2cf4dfdac071c9fa3662fae5
-2011-10-15T00:58:10.434042Z
-1974
+2012-01-21T11:36:41.154805Z
+483a8b967a7dff59fc76247817273ecf
+2011-12-12T22:54:51.405281Z
+2083
 smparkes@smparkes.net
 
 
@@ -534,7 +534,7 @@ smparkes@smparkes.net
 
 
 
-1685
+1957
 
 GlobalHistogramBinarizer.cpp
 file
@@ -542,10 +542,10 @@ file
 
 
 
-2011-10-18T19:37:00.440326Z
-cd1b15dd186d73fa7ef5f932ca78a63c
-2011-10-13T15:21:13.400743Z
-1966
+2012-01-21T11:36:41.154805Z
+0132aca91a75eef1d10f0bfea789cd9c
+2011-12-12T22:38:50.488915Z
+2082
 smparkes@smparkes.net
 
 
@@ -568,7 +568,7 @@ smparkes@smparkes.net
 
 
 
-6469
+6449
 
 PerspectiveTransform.cpp
 file
@@ -610,10 +610,10 @@ file
 
 
 
-2011-10-18T19:37:00.440326Z
-de2f449791edac53c32a544cf10748f9
-2011-10-15T00:58:10.434042Z
-1974
+2012-01-21T11:36:41.154805Z
+e93d9f6e608f7e537305616418fd5eb8
+2011-12-12T22:38:50.488915Z
+2082
 smparkes@smparkes.net
 
 
@@ -636,41 +636,10 @@ smparkes@smparkes.net
 
 
 
-6987
+6851
 
-GreyscaleLuminanceSource.cpp
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-747049d91d5a2c0182a58768923af628
-2010-08-16T15:34:00.595860Z
-1536
-dswitkin@google.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2574
+detector
+dir
 
 IllegalArgumentException.cpp
 file
@@ -706,6 +675,40 @@ ralf.kistner@gmail.com
 
 947
 
+GreyscaleLuminanceSource.cpp
+file
+
+
+
+
+2011-04-21T13:08:35.000000Z
+747049d91d5a2c0182a58768923af628
+2010-08-16T15:34:00.595860Z
+1536
+dswitkin@google.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2574
+
 StringUtils.h
 file
 
@@ -739,40 +742,6 @@ smparkes@smparkes.net
 
 
 1410
-
-EdgeDetector.cpp
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-cc71ed2f3dd4def8c7c75f78f7d5876a
-2010-04-02T14:11:53.276985Z
-1271
-ralf.kistner@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5103
 
 CharacterSetECI.h
 file
@@ -808,16 +777,50 @@ smparkes@smparkes.net
 
 1554
 
+EdgeDetector.cpp
+file
+
+
+
+
+2011-04-21T13:08:35.000000Z
+cc71ed2f3dd4def8c7c75f78f7d5876a
+2010-04-02T14:11:53.276985Z
+1271
+ralf.kistner@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5103
+
 ECI.cpp
 file
 
 
 
 
-2011-10-18T19:37:00.440326Z
-2a385e79ef172386bd261003fc12200c
-2011-10-13T15:21:13.400743Z
-1966
+2012-01-21T11:36:41.154805Z
+b653ba5988c3e3cd4bbeec3ab42f9f84
+2011-11-29T18:50:25.887077Z
+2054
 smparkes@smparkes.net
 
 
@@ -840,7 +843,7 @@ smparkes@smparkes.net
 
 
 
-1239
+1317
 
 BitMatrix.cpp
 file
@@ -848,10 +851,10 @@ file
 
 
 
-2011-10-18T19:37:00.440326Z
-14a659f8d60be4b5f05a54ed4c366c10
-2011-10-15T00:58:10.434042Z
-1974
+2012-01-21T11:36:41.154805Z
+c503e4a6d6713809be2aa56549ff26c5
+2011-12-12T22:54:51.405281Z
+2083
 smparkes@smparkes.net
 
 
@@ -874,41 +877,7 @@ smparkes@smparkes.net
 
 
 
-4460
-
-BitSource.h
-file
-
-
-
-
-2011-04-21T13:08:35.000000Z
-c9fb275ca71ac499229b259779b10337
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1894
+4452
 
 DecoderResult.cpp
 file
@@ -944,6 +913,40 @@ smparkes@smparkes.net
 
 1539
 
+BitSource.h
+file
+
+
+
+
+2012-01-21T11:36:41.154805Z
+d5e8bf3609a1e77c2e50696da728daef
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1946
+
 reedsolomon
 dir
 
@@ -953,10 +956,10 @@ file
 
 
 
-2011-10-18T19:37:00.444326Z
-2bfa397e0ed85045139d4d87e904b219
-2011-10-15T00:58:10.434042Z
-1974
+2012-01-21T11:36:41.158805Z
+29a1b4a82503aa0bd2132d13e8bd7f01
+2011-11-29T18:50:25.887077Z
+2054
 smparkes@smparkes.net
 
 
@@ -979,7 +982,7 @@ smparkes@smparkes.net
 
 
 
-4543
+4567
 
 Str.cpp
 file
@@ -1055,10 +1058,10 @@ file
 
 
 
-2011-10-18T19:37:00.468327Z
-994ecd13d873440eadaa5c329a5df38b
-2011-10-15T00:58:10.434042Z
-1974
+2012-01-21T11:36:41.158805Z
+8fb2d6b24ff8f233845d2437805dcb1c
+2011-12-12T22:54:51.405281Z
+2083
 smparkes@smparkes.net
 
 
@@ -1081,7 +1084,7 @@ smparkes@smparkes.net
 
 
 
-3743
+3260
 
 GridSampler.h
 file
@@ -1089,11 +1092,11 @@ file
 
 
 
-2011-04-21T13:08:35.000000Z
-54315c967f7a29c2909249c7af6aa1c6
-2010-08-04T13:36:20.887569Z
-1506
-flyashi
+2012-01-21T11:36:41.158805Z
+415214397fd7c9c0ff2dd6f04e263ae6
+2011-10-28T11:24:50.566843Z
+1992
+luizcroc@gmail.com
 
 
 
@@ -1115,7 +1118,7 @@ flyashi
 
 
 
-1538
+1659
 
 Array.h
 file
@@ -1123,10 +1126,10 @@ file
 
 
 
-2011-10-18T19:37:00.468327Z
-d18e9d5b14d825121961adec2b718146
-2011-10-13T15:21:13.400743Z
-1966
+2012-01-21T11:36:41.158805Z
+991dea9c0c4cd9f52cca56ab1cacf98b
+2011-10-19T14:26:01.416934Z
+1982
 smparkes@smparkes.net
 
 
@@ -1149,7 +1152,7 @@ smparkes@smparkes.net
 
 
 
-5066
+4943
 
 GreyscaleRotatedLuminanceSource.h
 file
@@ -1259,10 +1262,10 @@ file
 
 
 
-2011-10-18T19:37:00.468327Z
-a411ba5357dbefdaedb107d1608d7be6
-2011-10-13T15:21:13.400743Z
-1966
+2012-01-21T11:36:41.158805Z
+dbe759fb96223e2fccfcb0497f888ce3
+2011-11-29T18:50:25.887077Z
+2054
 smparkes@smparkes.net
 
 
@@ -1285,7 +1288,7 @@ smparkes@smparkes.net
 
 
 
-2978
+3056
 
 PerspectiveTransform.h
 file

@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/svn/!svn/ver/1966/trunk/cpp/core/src/zxing/qrcode/decoder
+/svn/!svn/ver/2056/trunk/cpp/core/src/zxing/qrcode/decoder
 END
 DecodedBitStreamParser.cpp
 K 25
@@ -43,7 +43,7 @@ DataMask.cpp
 K 25
 svn:wc:ra_dav:version-url
 V 71
-/svn/!svn/ver/1092/trunk/cpp/core/src/zxing/qrcode/decoder/DataMask.cpp
+/svn/!svn/ver/2056/trunk/cpp/core/src/zxing/qrcode/decoder/DataMask.cpp
 END
 Decoder.cpp
 K 25
