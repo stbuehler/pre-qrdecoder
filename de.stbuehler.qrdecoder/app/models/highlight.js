@@ -17,8 +17,19 @@ function highlight(text, barcodeformat) {
 	if ((typeof enyo != "undefined") && enyo.string && enyo.string.runTextIndexer) {
 		text = enyo.string.runTextIndexer(text);
 	} else {
-		text = text.replace(new RegExp('(https?://|mailto:)\\S*?\.?($|\\s)', 'ig'), function(value) { return '<a href="'+value+'">'+value+'</a>' });
+		var scheme = new RegExp('^[a-zA-Z][a-zA-Z0-9]+:', 'ig');
+		text = text.replace(new RegExp('(https?://|mailto:|www\\.|[a-z][a-z0-9]*\\.[a-z0-9.]+/)\\S*?($|\\s|(?=[.,!?]($|\\s)))', 'ig'), function(value) {
+			var link = value;
+			if (!scheme.test(value)) {
+				link = "http://" + value;
+			}
+			return '<a href="'+link+'">'+value+'</a>';
+		});
 	}
 	text = text.replace('\n', '<br />\n');
 	return text;
 }
+
+// console.log(highlight("t.co/mvmxxxxx"));
+// console.log(highlight("https://t.co/mvmxxxxx"));
+// console.log(highlight("checkout www.example.com/test."));
